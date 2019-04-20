@@ -3,7 +3,7 @@ Website built on Python Flask framework. Utilizes Blizzard's community APIs to g
 Currently deployed as https://frer.se
 
 To be able to run this a config.py file needs to be created in the repository root containing the following:
-# ----------------------------------
+```
 class AppConfig:
     SECRET_KEY = 'A secret key for your app'
     SQLALCHEMY_DATABASE_URI = 'SQL alchemy db uri'
@@ -22,8 +22,7 @@ class MySQLconfig:
     MYSQL_USER = 'user'
     MYSQL_PASSWORD = 'pass'
     MYSQL_DATABASE = 'db'
-# ----------------------------------
-
+```
 Right now the application does not contain database table creation and therefore depend on the existance of needed tables.
 I will change all database communication to SQLAlchemy in the near future and fix that.
 
