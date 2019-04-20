@@ -1,0 +1,233 @@
+.lookup-main { 
+    margin-top: 0.5%;
+}
+.lookup-container {
+  display: flex;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
+}
+.lookup-box {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.3),1px 0 3px rgba(0,0,0,0.3), 0 -1px 3px rgba(0,0,0,0.3),-1px 0px 3px rgba(0,0,0,0.3);
+    background-color: rgb(40, 40, 40);
+    border: 2px solid white;
+    color: white;
+    text-shadow: none;
+    padding: 7px 7px 2px 7px;
+    text-align: center;
+    line-height: 160%;
+    height: 300px;
+    width: 235px;
+    display: inline-block;
+    justify-content: flex-end;
+    margin-left:0%;
+    margin-right:0%;
+}
+.lookup-picbox {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.3),1px 0 3px rgba(0,0,0,0.3), 0 -1px 3px rgba(0,0,0,0.3),-1px 0px 3px rgba(0,0,0,0.3);
+  background-color: rgba(40, 40, 40, 0.8);
+  border: 2px solid white;
+  color: white;
+  text-shadow: none;
+  padding: 7px 7px 2px 7px;
+  margin-top:1%;
+  margin-bottom:0.5%;
+  text-align: center;
+  line-height: 160%;
+  height: 340px;
+  width: 240px;
+  display: inline-block;
+}
+.lookup-gear {
+  justify-content: flex-end;
+  margin-right:0.5%;
+  margin-left:0.5%;
+  margin-top:0%;
+  margin-bottom:0%;
+}
+select {
+  border: none;
+  border-radius: 5px;
+  padding: 0 2px 0 2px;
+  height: 22px;
+  width: 155px;
+}
+select:required:invalid {
+  color: gray;
+}
+option[value=""][disabled] {
+  display: none;
+}
+option {
+  color: black;
+}
+input[type="text"] {
+  border: none;
+  border-radius: 5px;
+  height: 22px;
+  padding: 0 5px 0 5px;
+  width: 145px;
+}
+.lookup-butn{
+  margin-bottom: 1.25%;
+  margin-top: 1%;
+  border-radius: 6px;
+  padding: 0.5% 1%;
+  border: none;
+  color: white;
+  background-color:rgb(67, 163, 70);
+  border: 1px solid white;
+}
+.lookup-butn:hover{
+  background-color:rgb(47, 143, 50);
+  cursor: pointer;
+}
+.lookup-foot-container{
+  position:fixed;
+  bottom: 5px;
+  width: 100%;
+}
+.lookup-foot{
+  font-size:80%;
+  font-style: italic;
+}
+.search-error {
+  color:red;
+  text-shadow: -1px 0 3px black, 0 1px 3px black, 1px 0 3px black, 0 -1px 3px black;
+}
+.hidden {
+  display:none;
+}
+/* Class name tag */
+.death-knight-lookup{
+  color:#C41F3B;
+  border: 2px solid white;
+  padding: 2px;
+  font-size:180%;
+  background-color: rgb(40,40,40);
+  width: 250px;
+  margin-top: 0px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.demon-hunter-lookup{
+  color:#A330C9;
+  border: 2px solid white;
+  padding: 2px;
+  font-size:180%;
+  background-color: rgb(40,40,40);
+  width: 250px;
+  margin-top: 0px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.druid-lookup{
+  color:#FF7D0A;
+  border: 2px solid white;
+  padding: 2px;
+  font-size:180%;
+  background-color: rgb(40,40,40);
+  width: 250px;
+  margin-top: 0px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.hunter-lookup{
+  color:#ABD473;
+  border: 2px solid white;
+  padding: 2px;
+  font-size:180%;
+  background-color: rgb(40,40,40);
+  width: 250px;
+  margin-top: 0px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.mage-lookup{
+  color:#40C7EB;
+  border: 2px solid white;
+  padding: 2px;
+  font-size:180%;
+  background-color: rgb(40,40,40);
+  width: 250px;
+  margin-top: 0px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.monk-lookup{
+  color:#00FF96;
+  border: 2px solid white;
+  padding: 2px;
+  font-size:180%;
+  background-color: rgb(40,40,40);
+  width: 250px;
+  margin-top: 0px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.paladin-lookup{
+  color:#F58CBA;   
+  border: 2px solid white;
+  padding: 2px;
+  font-size:180%;
+  background-color: rgb(40,40,40);
+  width: 250px;
+  margin-top: 0px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.priest-lookup{
+  color:#FFFFFF;
+  border: 2px solid white;
+  padding: 2px;
+  font-size:180%;
+  background-color: rgb(40,40,40);
+  width: 250px;
+  margin-top: 0px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.rogue-lookup{
+  color:#FFF569;
+  border: 2px solid white;
+  padding: 2px;
+  font-size:180%;
+  background-color: rgb(40,40,40);
+  width: 250px;
+  margin-top: 0px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.shaman-lookup{
+  color:#0070DE;
+  border: 2px solid white;
+  padding: 2px;
+  font-size:180%;
+  background-color: rgb(40,40,40);
+  width: 250px;
+  margin-top: 0px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.warlock-lookup{
+  color:#8787ED;
+  border: 2px solid white;
+  padding: 2px;
+  font-size:180%;
+  background-color: rgb(40,40,40);
+  width: 250px;
+  margin-top: 0px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.warrior-lookup{
+  color:#C79C6E;
+  border: 2px solid white;
+  padding: 2px;
+  font-size:180%;
+  background-color: rgb(40,40,40);
+  width: 250px;
+  margin-top: 0px;
+  margin-left: auto;
+  margin-right: auto;
+}

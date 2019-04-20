@@ -1,0 +1,138 @@
+.roster-grp {
+    margin-top: 2%;
+    text-align: left;
+}
+.roster-box {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.3),1px 0 3px rgba(0,0,0,0.3), 0 -1px 3px rgba(0,0,0,0.3),-1px 0px 3px rgba(0,0,0,0.3);
+    background-color: rgb(116, 126, 116);
+    border: 1px solid white;
+    color: white;
+    text-shadow: none;
+    display: inline-block;
+    padding: 7px 7px 2px 7px;
+    width: 13%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top:1%;
+    margin-bottom:1%;
+    text-align: center;
+    line-height: 160%;
+}
+/* Class text roster */
+.death-knight-roster{
+    color:#C41F3B;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 0.5% 4% 0.5% 4%;
+    text-align: center;
+    font-size:130%;
+    background-color: rgb(43, 43, 43);
+}
+.demon-hunter-roster{
+    color:#A330C9;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 0.5% 4% 0.5% 4%;
+    text-align: center;
+    font-size:130%;
+    background-color: rgb(43, 43, 43);
+}
+.druid-roster{
+    color:#FF7D0A;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 0.5% 4% 0.5% 4%;
+    text-align: center;
+    font-size:130%;
+    background-color: rgb(43, 43, 43);
+}
+.hunter-roster{
+    color:#ABD473;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 0.5% 4% 0.5% 4%;
+    text-align: center;
+    font-size:130%;
+    background-color: rgb(43, 43, 43);
+}
+.mage-roster{
+    color:#40C7EB;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 0.5% 4% 0.5% 4%;
+    text-align: center;
+    font-size:130%;
+    background-color: rgb(43, 43, 43);
+}
+.monk-roster{
+    color:#00FF96;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 0.5% 4% 0.5% 4%;
+    text-align: center;
+    font-size:130%;
+    background-color: rgb(43, 43, 43);
+}
+.paladin-roster{
+    color:#F58CBA;   
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 0.5% 4% 0.5% 4%;
+    text-align: center;
+    font-size:130%;
+    background-color: rgb(43, 43, 43);
+}
+.priest-roster{
+    color:#FFFFFF;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 0.5% 4% 0.5% 4%;
+    text-align: center;
+    font-size:130%;
+    background-color: rgb(43, 43, 43);
+}
+.rogue-roster{
+    color:#FFF569;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 0.5% 4% 0.5% 4%;
+    text-align: center;
+    font-size:130%;
+    background-color: rgb(43, 43, 43);
+}
+.shaman-roster{
+    color:#0070DE;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 0.5% 4% 0.5% 4%;
+    text-align: center;
+    font-size:130%;
+    background-color: rgb(43, 43, 43);
+}
+.warlock-roster{
+    color:#8787ED;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 0.5% 4% 0.5% 4%;
+    text-align: center;
+    font-size:130%;
+    background-color: rgb(43, 43, 43);
+}
+.warrior-roster{
+    color:#C79C6E;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 0.5% 4% 0.5% 4%;
+    text-align: center;
+    font-size:130%;
+    background-color: rgb(43, 43, 43);
+}
+.captain-p-roster{
+    color:rgb(43, 43, 43);
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 0.5% 4% 0.5% 4%;
+    text-align: center;
+    font-size:130%;
+    background-color: rgb(43, 43, 43);
+}

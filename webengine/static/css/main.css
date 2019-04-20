@@ -1,0 +1,231 @@
+/* BODY classes */
+.death-knight{
+    background-color:#C41F3B;
+    color:white;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    font-size:100%;
+}
+.demon-hunter{
+    background-color:#A330C9;
+    color:white;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    font-size:100%;
+}
+.druid{
+    background-color:#FF7D0A;
+    color:white;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    font-size:100%;
+}
+.hunter{
+    background-color:#ABD473;
+    color:white;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    font-size:100%;
+}
+.mage{
+    background-color:#40C7EB;
+    color:white;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    font-size:100%;
+}
+.monk{
+    background-color:#00FF96;
+    color:white;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    font-size:100%;
+}
+.paladin{
+    background-color:#F58CBA;
+    color:white;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    font-size:100%;
+}
+.priest{
+    background-color:#FFFFFF;
+    text-shadow: -1px 0 3px black, 0 1px 3px black, 1px 0 3px black, 0 -1px 3px black;
+    color:white;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    font-size:100%;
+}
+.rogue{
+    background-color:#FFF569;
+    text-shadow: -1px 0 3px black, 0 1px 3px black, 1px 0 3px black, 0 -1px 3px black;
+    color:white;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    font-size:100%;
+}
+.shaman{
+    background-color:#0070DE;
+    color:white;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    font-size:100%;
+}
+.warlock{
+    background-color:#8787ED;
+    color:white;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    font-size:100%;
+}
+.warrior{
+    background-color:#C79C6E;
+    color:white;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    font-size:100%;
+}
+.captain-p{
+    background-color:rgb(20, 20, 20);
+    color:white;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    font-size:100%;
+}
+/* End of list of body classes */
+.main-container{
+    margin-top: 0.5%;
+}
+.big-headline {
+    font-size: 500%;
+}
+.toplist-grp {
+    margin-top: 1%;
+    text-align: left;
+}
+.toplist-box {
+    background-color: rgb(126, 136, 126);
+    border: 1px solid white;
+    color: white;
+    text-shadow: none;
+    padding: 7px 7px 2px 7px;
+    width: 14%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top:0.4%;
+    margin-bottom:0.4%;  
+}
+.toplist-text {
+    display:inline-block;
+    margin-top:16px;
+    width: 10%;
+    margin-left: 1%;
+    margin-bottom:0;
+    position:absolute;
+}
+.toplist-grp a {
+    text-decoration: none;
+}
+div {
+    margin-top:2%;
+    margin-bottom:2%;
+}
+img{
+    border: 1px solid white;
+}
+.big-name{
+    font-size:130%;
+}
+.small-text{
+    font-size:91%;
+}
+.footnote{
+    font-size:80%;
+    font-style: italic;
+    margin-top:0%;
+    margin-bottom:0%;
+}
+
+.content-cont{
+    margin-top:0;
+    margin-bottom:0;
+}
+
+.load-anim {
+color: official;
+display: inline-block;
+position: relative;
+width: 64px;
+height: 64px;
+}
+.load-anim div {
+transform-origin: 32px 32px;
+animation: load-anim 1.2s linear infinite;
+}
+.load-anim div:after {
+content: " ";
+display: block;
+position: absolute;
+top: 3px;
+left: 29px;
+width: 5px;
+height: 14px;
+border-radius: 20%;
+background: #fff;
+}
+.load-anim div:nth-child(1) {
+transform: rotate(0deg);
+animation-delay: -1.1s;
+}
+.load-anim div:nth-child(2) {
+transform: rotate(30deg);
+animation-delay: -1s;
+}
+.load-anim div:nth-child(3) {
+transform: rotate(60deg);
+animation-delay: -0.9s;
+}
+.load-anim div:nth-child(4) {
+transform: rotate(90deg);
+animation-delay: -0.8s;
+}
+.load-anim div:nth-child(5) {
+transform: rotate(120deg);
+animation-delay: -0.7s;
+}
+.load-anim div:nth-child(6) {
+transform: rotate(150deg);
+animation-delay: -0.6s;
+}
+.load-anim div:nth-child(7) {
+transform: rotate(180deg);
+animation-delay: -0.5s;
+}
+.load-anim div:nth-child(8) {
+transform: rotate(210deg);
+animation-delay: -0.4s;
+}
+.load-anim div:nth-child(9) {
+transform: rotate(240deg);
+animation-delay: -0.3s;
+}
+.load-anim div:nth-child(10) {
+transform: rotate(270deg);
+animation-delay: -0.2s;
+}
+.load-anim div:nth-child(11) {
+transform: rotate(300deg);
+animation-delay: -0.1s;
+}
+.load-anim div:nth-child(12) {
+transform: rotate(330deg);
+animation-delay: 0s;
+}
+@keyframes load-anim {
+0% {
+    opacity: 1;
+}
+100% {
+    opacity: 0;
+}
+}
