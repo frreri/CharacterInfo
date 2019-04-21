@@ -1,29 +1,16 @@
-<!DOCTYPE HTML>
-<html lang="en">
-<head>
-	<title>Frer.se</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/lookup.css') }}">
-	<link href="{{ url_for('static', filename='images/frerfavicon.png') }}" rel="icon" type="image/x-icon"/>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+{% extends "layout.html" %}
+{% block head %}
     <script src="{{ url_for('static', filename='scripts/lookup.js') }}"></script>
     {% if char_data %}
-    <script>var whTooltips = {colorLinks: true, iconizeLinks: true, renameLinks: false, iconSize:'medium', "hide": { "droppedby": true, "dropchance": true, "sellprice": true, "reagents": true } };</script>
-    <script src="https://wow.zamimg.com/widgets/power.js"></script>
-    <script src="{{ url_for('static', filename='scripts/charsize.js') }}"></script>
+        <script>var whTooltips = {colorLinks: true, iconizeLinks: true, renameLinks: false, iconSize:'medium', "hide": { "droppedby": true, "dropchance": true, "sellprice": true, "reagents": true } };</script>
+        <script src="https://wow.zamimg.com/widgets/power.js"></script>
+        <script src="{{ url_for('static', filename='scripts/charsize.js') }}"></script>
     {% endif %}
-</head>
-{% if char_data %}
-<body class="{{ class_c }}" onload="char_size()">
-{% else %}
-<body class="{{ class_c }}">
-{% endif %}
-<div class="lookup-main">
-	<span class="big-headline">
-		Character info
-	</span>
+{% endblock head %}
+{% block content %}
+    <span class="big-headline">
+        Character info
+    </span>
     <p>Show info about your World of Warcraft character</p>
     <form onSubmit="return search_char();">
         <select name="realm_c" id="realm_c" required>
@@ -97,10 +84,4 @@
 
     </div>
     {% endif %}
-    <div class="lookup-foot-container">
-        <p class="lookup-foot">This site uses data and images from Blizzard's World of Warcraft Community APIs. The site is in no way affiliated with or endorsed by Blizzard Entertainment, Inc.<br>
-        World of Warcraft is a registered trademark of Blizzard Entertainment, Inc.</p>
-    </div>
-</div>
-</body>
-</html>
+{% endblock content %}

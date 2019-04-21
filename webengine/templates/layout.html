@@ -13,13 +13,7 @@
 	<link href="{{ url_for('static', filename='images/frerfavicon.png') }}" rel="icon" type="image/x-icon"/>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     {% block head %}
-        {% comment %} Page unique head content goes here
-        <script src="{{ url_for('static', filename='scripts/lookup.js') }}"></script>
-        {% if char_data %}
-            <script>var whTooltips = {colorLinks: true, iconizeLinks: true, renameLinks: false, iconSize:'medium', "hide": { "droppedby": true, "dropchance": true, "sellprice": true, "reagents": true } };</script>
-            <script src="https://wow.zamimg.com/widgets/power.js"></script>
-            <script src="{{ url_for('static', filename='scripts/charsize.js') }}"></script>
-        {% endif %} {% endcomment %}
+        {% comment %} Page unique head content goes here {% endcomment %}
     {% endblock head %}
 </head>
 {% if char_data %}
@@ -27,13 +21,14 @@
 {% else %}
 <body class="captain-p">
 {% endif %}
-{% block content %}
-{% comment %} Page primary content goes here {% endcomment %}
-{% endblock content %}
-<div class="lookup-foot-container">
-    <p class="lookup-foot">This site uses data and images from Blizzard's World of Warcraft Community APIs. The site is in no way affiliated with or endorsed by Blizzard Entertainment, Inc.<br>
-    World of Warcraft is a registered trademark of Blizzard Entertainment, Inc.</p>
-</div>
-</div>
+    <div class="lookup-main">
+        {% block content %}
+        {% comment %} Page primary content goes here {% endcomment %}
+        {% endblock content %}
+        <div class="lookup-foot-container">
+            <p class="lookup-foot">This site uses data and images from Blizzard's World of Warcraft Community APIs. The site is in no way affiliated with or endorsed by Blizzard Entertainment, Inc.<br>
+            World of Warcraft is a registered trademark of Blizzard Entertainment, Inc.</p>
+        </div>
+    </div>
 </body>
 </html>
