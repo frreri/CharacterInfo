@@ -1,35 +1,21 @@
-<!DOCTYPE HTML>
-<html lang="en">
-<head>
-    <title>Frer.se - Fury toplist</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
-    <link href="{{ url_for('static', filename='images/frerfavicon.png') }}" rel="icon" type="image/x-icon"/>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-</head>
-<body class="{{ class_c }}">
-<div class="main-container">
-    <span class="big-headline">
-        Fury
-    </span>
-    <p>Ranking by highest average equipped item level</p>
-    <div class="toplist-grp">
-        {% for row in rank_list %}
-            <div class="toplist-box">
-                <a href="https://worldofwarcraft.com/en-gb/character/aggramar/{{ row[0] }}">
-                    <img src="{{ thumb[loop.index-1] }}" height="52" width="52">
-                </a>
-                <div class="toplist-text">
-                    <span>
-                        {{ loop.index }}. {{ row[0] }}
-                    </span>
-                </div>
-            </div>
-        {% endfor %}
+{% extends "layout.html" %}
+{% block content %}
+<span class="big-headline">
+    Fury
+</span>
+<p>Ranking by highest average equipped item level</p>
+<div class="toplist-grp">
+    {% for row in rank_list %}
+    <div class="toplist-box">
+        <a href="https://worldofwarcraft.com/en-gb/character/aggramar/{{ row[0] }}">
+            <img src="{{ thumb[loop.index-1] }}" height="52" width="52">
+        </a>
+        <div class="toplist-text">
+            <span>
+                {{ loop.index }}. {{ row[0] }}
+            </span>
+        </div>
     </div>
-    <div style="margin-bottom:0%">
-        <p class="footnote">This site uses data and images from Blizzard's World of Warcraft Community APIs. The site is in no way affiliated with or endorsed by Blizzard Entertainment, Inc.<br>
-        World of Warcraft is a registered trademark of Blizzard Entertainment, Inc.</p>
-    </div>
+    {% endfor %}
 </div>
-</body>
-</html>
+{% endblock content %}
