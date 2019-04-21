@@ -1,106 +1,39 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
-	<title>Frer.se</title>
+	{% if title %}
+        <title>Frer.se - {{ title }}</title>
+    {% else %}
+        <title>Frer.se</title>
+    {% endif %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/lookup.css') }}">
 	<link href="{{ url_for('static', filename='images/frerfavicon.png') }}" rel="icon" type="image/x-icon"/>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-    <script src="{{ url_for('static', filename='scripts/lookup.js') }}"></script>
-    {% if char_data %}
-    <script>var whTooltips = {colorLinks: true, iconizeLinks: true, renameLinks: false, iconSize:'medium', "hide": { "droppedby": true, "dropchance": true, "sellprice": true, "reagents": true } };</script>
-    <script src="https://wow.zamimg.com/widgets/power.js"></script>
-    <script src="{{ url_for('static', filename='scripts/charsize.js') }}"></script>
-    {% endif %}
+    {% block head %}
+        {% comment %} Page unique head content goes here
+        <script src="{{ url_for('static', filename='scripts/lookup.js') }}"></script>
+        {% if char_data %}
+            <script>var whTooltips = {colorLinks: true, iconizeLinks: true, renameLinks: false, iconSize:'medium', "hide": { "droppedby": true, "dropchance": true, "sellprice": true, "reagents": true } };</script>
+            <script src="https://wow.zamimg.com/widgets/power.js"></script>
+            <script src="{{ url_for('static', filename='scripts/charsize.js') }}"></script>
+        {% endif %} {% endcomment %}
+    {% endblock head %}
 </head>
 {% if char_data %}
-<body class="{{ class_c }}" onload="char_size()">
+<body class="captain-p" onload="char_size()">
 {% else %}
-<body class="{{ class_c }}">
+<body class="captain-p">
 {% endif %}
-<div class="lookup-main">
-	<span class="big-headline">
-		Character info
-	</span>
-    <p>Show info about your World of Warcraft character</p>
-    <form onSubmit="return search_char();">
-        <select name="realm_c" id="realm_c" required>
-            {% if char_data %}
-            <option value="{{char_data[7]|lower}}" selected>{{char_data[7]}}</option>
-            {% else %}
-            <option value="" disabled selected>Select realm</option>
-            {% endif %}
-            {% for row in realm_data %}
-            <option value='{{ row|lower }}'>{{ row }}</option>
-            {% endfor %}
-        </select>
-        <input type="text" name="name_c" id="name_c" placeholder="Character" required> <BR>
-        <input type="submit" value="Search" class="lookup-butn">
-    </form>
-    {% if err_msg %}
-    <p class="search-error">{{ err_msg }}</p>
-    {% endif %}
-    <div class="lookup-container"  id="load-anim" style="display:none">
-        <div class="load-anim">
-            <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
-        </div>
-    </div>
-    {% if char_data %}
-    <div class="content-cont" id="content-container">
-        <div class="lookup-container">
-            <div class="lookup-box">
-                <img src="https://render-eu.worldofwarcraft.com/character/{{ char_data[9] }}" height="52" width="52"><br>
-                <span>{{ char_data[0] }}</span><br>
-                <span>{{ char_data[6] }} @ {{ char_data[7] }}</span><br>
-                <span>Lvl. {{ char_data[4] }} {{ char_data[1] }}</span><br>
-                <span id="c_race">{{ char_data[2] }}</span> <span id="c_gender">{{ char_data[3] }}</span><br>
-                <span>Item level {{ char_data[5] }}</span><br>
-            </div>
-            <div class="lookup-gear">
-                <a href="{{ char_data[17] }}" target="_blank"><span class="hidden">Head</span></a><br>
-                <a href="{{ char_data[18] }}" target="_blank"><span class="hidden">Neck</span></a><br>
-                <a href="{{ char_data[19] }}" target="_blank"><span class="hidden">Shoulder</span></a><br>
-                <a href="{{ char_data[20] }}" target="_blank"><span class="hidden">Back</span></a><br>
-                <a href="{{ char_data[21] }}" target="_blank"><span class="hidden">Chest</span></a><br>
-                <a href="{{ char_data[22] }}" target="_blank"><span class="hidden">Wrist</span></a><br>
-                {{ char_data[23]|safe }}
-                <a href="{{ char_data[24] }}" target="_blank"><span class="hidden">Offhand</span></a>
-
-            </div>
-            <div class="lookup-picbox" id="picbox" style='background: url("{{ char_data[10] }}") #000 no-repeat center center;background-size: 800px 600px;background-position: 50% 62%;'>
-            </div>
-            <div class="lookup-gear">
-                <a href="{{ char_data[25] }}" target="_blank"><span class="hidden">hands</span></a><br>
-                <a href="{{ char_data[26] }}" target="_blank"><span class="hidden">Waist</span></a><br>
-                <a href="{{ char_data[27] }}" target="_blank"><span class="hidden">Legs</span></a><br>
-                <a href="{{ char_data[28] }}" target="_blank"><span class="hidden">Feet</span></a><br>
-                <a href="{{ char_data[29] }}" target="_blank"><span class="hidden">Finger1</span></a><br>
-                <a href="{{ char_data[30] }}" target="_blank"><span class="hidden">Finger2</span></a><br>
-                <a href="{{ char_data[31] }}" target="_blank"><span class="hidden">Trinket1</span></a><br>
-                <a href="{{ char_data[32] }}" target="_blank"><span class="hidden">Trinket2</span></a>
-            </div>
-            <div class="lookup-box">
-                <span>Honorable kills: {{ char_data[8] }}</span><br>
-                <span>Achievement points: {{ char_data[11] }}</span><br>
-                <span>Usable mounts: {{ char_data[12] }}</span><br>
-                <span>Unique pets: {{ char_data[13] }}</span><br>
-                <span>Factions at exalted: {{ char_data[14] }}</span><br>
-                <span>Unique quests done: {{ char_data[15] }}</span><br>
-            </div>
-        </div>
-        <p class="{{ color_class[char_data[1]] }}-lookup">{{ char_data[16] }}</p>
-    </div>
-    {% else %}
-    <div class="lookup-container" id="content-container">
-
-    </div>
-    {% endif %}
-    <div class="lookup-foot-container">
-        <p class="lookup-foot">This site uses data and images from Blizzard's World of Warcraft Community APIs. The site is in no way affiliated with or endorsed by Blizzard Entertainment, Inc.<br>
-        World of Warcraft is a registered trademark of Blizzard Entertainment, Inc.</p>
-    </div>
+{% block content %}
+{% comment %} Page primary content goes here {% endcomment %}
+{% endblock content %}
+<div class="lookup-foot-container">
+    <p class="lookup-foot">This site uses data and images from Blizzard's World of Warcraft Community APIs. The site is in no way affiliated with or endorsed by Blizzard Entertainment, Inc.<br>
+    World of Warcraft is a registered trademark of Blizzard Entertainment, Inc.</p>
+</div>
 </div>
 </body>
 </html>
