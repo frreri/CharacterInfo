@@ -94,9 +94,12 @@
 }
 /* End of list of body classes */
 .main-container{
-    margin-top: 0.5%;
     position: relative;
     min-height: 100vh;
+    margin-bottom: 0%;
+    margin-top: 0%;
+    font-size:80%;
+    font-style: italic;
 }
 .main-wrapper {
     padding-bottom: 2.5rem;
