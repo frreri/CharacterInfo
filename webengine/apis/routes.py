@@ -51,4 +51,4 @@ def get_character():
 @apis.route('/server/searches', methods=['GET'])
 def get_searches():
     searchlist = SQLfetcher.SQLfetchSearch()
-    return render_template('searchstat.htm', data=searchlist)
+    return render_template('searchstat.html', data=searchlist)

@@ -16,7 +16,7 @@ no_thumb = "/static/images/frericon.png"
 def char_lookup():
     char_profile = []
     realmlist = SQLfetcher.SQLfetchRealm()
-    return render_template('lookup.htm', char_data=char_profile, realm_data=realmlist, class_c="captain-p", err_msg="")
+    return render_template('lookup.html', char_data=char_profile, realm_data=realmlist, class_c="captain-p", err_msg="")
 
 @main.route('/lookup/<wowrealm>/<wowcharacter>', methods=['GET'])
 def char_search(wowrealm,wowcharacter):
@@ -27,12 +27,12 @@ def char_search(wowrealm,wowcharacter):
         try:
             char_profile = APIfetcher.APIfetchChar(wowrealm,wowcharacter)
             SQLfetcher.SQLinsert(char_profile, "WEB")
-            return render_template('lookup.htm', char_data=char_profile , class_c="captain-p", realm_data=realmlist, err_msg="", color_class=body_class)
+            return render_template('lookup.html', char_data=char_profile , class_c="captain-p", realm_data=realmlist, err_msg="", color_class=body_class)
         except:
-            return render_template('lookup.htm', char_data=char_profile , class_c="captain-p", realm_data=realmlist, err_msg="Character not found!")
+            return render_template('lookup.html', char_data=char_profile , class_c="captain-p", realm_data=realmlist, err_msg="Character not found!")
     else:
         print ('Attempt to search character with illegal characters!')
-        return render_template('lookup.htm', char_data=char_profile , class_c="captain-p", realm_data=realmlist , err_msg="Invalid input!")
+        return render_template('lookup.html', char_data=char_profile , class_c="captain-p", realm_data=realmlist , err_msg="Invalid input!")
 
 @main.route('/toplist', methods=['GET'])
 def output():
@@ -46,11 +46,11 @@ def output():
             thumbnail.append(thumb+x[3])
         count+=1
     try:
-        return render_template('toplist.htm',rank_list=g_char,class_c=body_class[g_char[0][1]],thumb=thumbnail)
+        return render_template('toplist.html',rank_list=g_char,class_c=body_class[g_char[0][1]],thumb=thumbnail)
     except:
-        return render_template('toplist.htm',rank_list=g_char,class_c="captain-p",thumb=thumbnail)
+        return render_template('toplist.html',rank_list=g_char,class_c="captain-p",thumb=thumbnail)
 
 @main.route('/roster', methods=['GET'])
 def roster_list():
     g_roster = SQLfetcher.SQLfetchAll()
-    return render_template('roster.htm', data=g_roster, color_class=body_class , class_c="captain-p")
+    return render_template('roster.html', data=g_roster, color_class=body_class , class_c="captain-p")
