@@ -23,7 +23,9 @@ class MySQLconfig:
     MYSQL_PASSWORD = 'pass'
     MYSQL_DATABASE = 'db'
 ```
-Right now the application does not contain database table creation and therefore depend on the existance of needed tables.
-I will change all database communication to SQLAlchemy in the near future and fix that.
+Before running the application, create the required database tables by running create_tables.py
+
+Right now the application does not contain database table creation for some of its features.
+I will change all database communication to SQLAlchemy in the near future which will fix that.
 
 User accounts and logged in features are in the works.

@@ -1,6 +1,7 @@
 from flask import Blueprint, render_template
 from webengine.mysql import SQLfetcher
 from webengine.apis import APIfetcher
+
 main = Blueprint('main', __name__)
 
 
