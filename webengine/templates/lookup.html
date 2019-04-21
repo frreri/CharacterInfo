@@ -29,7 +29,7 @@
 {% if err_msg %}
 <p class="search-error">{{ err_msg }}</p>
 {% endif %}
-<div class="lookup-container"  id="load-anim" style="display:none">
+<div class="lookup-container" id="load-anim" style="display:none">
     <div class="load-anim">
         <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
     </div>
@@ -54,7 +54,6 @@
             <a href="{{ char_data[22] }}" target="_blank"><span class="hidden">Wrist</span></a><br>
             {{ char_data[23]|safe }}
             <a href="{{ char_data[24] }}" target="_blank"><span class="hidden">Offhand</span></a>
-
         </div>
         <div class="lookup-picbox" id="picbox" style='background: url("{{ char_data[10] }}") #000 no-repeat center center;background-size: 800px 600px;background-position: 50% 62%;'>
         </div>

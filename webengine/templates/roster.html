@@ -1,27 +1,27 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
-	<title>Frer.se - Fury roster</title>
+    <title>Frer.se - Fury roster</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/roster.css') }}">
-	<link href="{{ url_for('static', filename='images/frerfavicon.png') }}" rel="icon" type="image/x-icon"/>
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href="{{ url_for('static', filename='images/frerfavicon.png') }}" rel="icon" type="image/x-icon"/>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 </head>
 <body class="captain-p">
 
 <div class="main-container">
-	<span class="big-headline">
-		Fury
-	</span>
-	<p>Current roster</p>
-	<div class="roster-grp">
+    <span class="big-headline">
+        Fury
+    </span>
+    <p>Current roster</p>
+    <div class="roster-grp">
         {% for row in data %}
             <div class="roster-box">
                 <div>
                     <span class="{{ color_class[row[1]] }}-roster">{{ row[0] }}</span>  <span></span> <br>
                     <span class="small-text">{{ row[2]}} {{ row[1]}}</span> <br>
-                        lvl.{{ row[4]}} <br>
-                        Item level {{ row[5]}}
+                    lvl.{{ row[4]}} <br>
+                    Item level {{ row[5]}}
                 </div>
             </div>
         {% endfor %}
