@@ -1,99 +1,11 @@
-/* BODY classes */
-.death-knight{
-    background-color:#C41F3B;
-    color:white;
-    text-align: center;
-    font-family: 'Open Sans', sans-serif;
-    font-size:100%;
-}
-.demon-hunter{
-    background-color:#A330C9;
-    color:white;
-    text-align: center;
-    font-family: 'Open Sans', sans-serif;
-    font-size:100%;
-}
-.druid{
-    background-color:#FF7D0A;
-    color:white;
-    text-align: center;
-    font-family: 'Open Sans', sans-serif;
-    font-size:100%;
-}
-.hunter{
-    background-color:#ABD473;
-    color:white;
-    text-align: center;
-    font-family: 'Open Sans', sans-serif;
-    font-size:100%;
-}
-.mage{
-    background-color:#40C7EB;
-    color:white;
-    text-align: center;
-    font-family: 'Open Sans', sans-serif;
-    font-size:100%;
-}
-.monk{
-    background-color:#00FF96;
-    color:white;
-    text-align: center;
-    font-family: 'Open Sans', sans-serif;
-    font-size:100%;
-}
-.paladin{
-    background-color:#F58CBA;
-    color:white;
-    text-align: center;
-    font-family: 'Open Sans', sans-serif;
-    font-size:100%;
-}
-.priest{
-    background-color:#FFFFFF;
-    text-shadow: -1px 0 3px black, 0 1px 3px black, 1px 0 3px black, 0 -1px 3px black;
-    color:white;
-    text-align: center;
-    font-family: 'Open Sans', sans-serif;
-    font-size:100%;
-}
-.rogue{
-    background-color:#FFF569;
-    text-shadow: -1px 0 3px black, 0 1px 3px black, 1px 0 3px black, 0 -1px 3px black;
-    color:white;
-    text-align: center;
-    font-family: 'Open Sans', sans-serif;
-    font-size:100%;
-}
-.shaman{
-    background-color:#0070DE;
-    color:white;
-    text-align: center;
-    font-family: 'Open Sans', sans-serif;
-    font-size:100%;
-}
-.warlock{
-    background-color:#8787ED;
-    color:white;
-    text-align: center;
-    font-family: 'Open Sans', sans-serif;
-    font-size:100%;
-}
-.warrior{
-    background-color:#C79C6E;
-    color:white;
-    text-align: center;
-    font-family: 'Open Sans', sans-serif;
-    font-size:100%;
-}
-.captain-p{
+.captain-p {
     background-color:rgb(20, 20, 20);
     color:white;
     text-align: center;
     font-family: 'Open Sans', sans-serif;
     font-size:100%;
 }
-/* End of list of body classes */
-.main-container{
+.main-container {
     position: relative;
     min-height: 95vh;
     margin-bottom: 0%;
@@ -118,6 +30,7 @@
 }
 .toplist-grp {
     margin-top: 1%;
+    margin-bottom: 1%;
     text-align: left;
 }
 .toplist-box {
@@ -147,23 +60,22 @@ div {
     margin-top:2%;
     margin-bottom:2%;
 }
-img{
+img {
     border: 1px solid white;
 }
-.big-name{
+.big-name {
     font-size:130%;
 }
-.small-text{
+.small-text {
     font-size:91%;
 }
-.footnote{
+.footnote {
     font-size:80%;
     font-style: italic;
     margin-top:0%;
     margin-bottom:0%;
 }
-
-.content-cont{
+.content-cont {
     margin-top:0;
     margin-bottom:0;
 }
