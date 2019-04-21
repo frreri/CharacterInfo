@@ -1,4 +1,4 @@
-.lookup-main { 
+.lookup-main {
     margin-top: 0.5%;
 }
 .lookup-container {
@@ -166,7 +166,7 @@ input[type="text"] {
   margin-right: auto;
 }
 .paladin-lookup{
-  color:#F58CBA;   
+  color:#F58CBA;
   border: 2px solid white;
   padding: 2px;
   font-size:180%;
