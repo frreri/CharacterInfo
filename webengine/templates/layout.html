@@ -13,7 +13,6 @@
 	<link href="{{ url_for('static', filename='images/frerfavicon.png') }}" rel="icon" type="image/x-icon"/>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     {% block head %}
-        {% comment %} Page unique head content goes here {% endcomment %}
     {% endblock head %}
 </head>
 {% if char_data %}
@@ -23,7 +22,6 @@
 {% endif %}
     <div class="lookup-main">
         {% block content %}
-        {% comment %} Page primary content goes here {% endcomment %}
         {% endblock content %}
         <div class="lookup-foot-container">
             <p class="lookup-foot">This site uses data and images from Blizzard's World of Warcraft Community APIs. The site is in no way affiliated with or endorsed by Blizzard Entertainment, Inc.<br>
