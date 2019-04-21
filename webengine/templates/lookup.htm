@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
 	<title>Frer.se</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/lookup.css') }}">
 	<link href="{{ url_for('static', filename='images/frerfavicon.png') }}" rel="icon" type="image/x-icon"/>
@@ -32,7 +34,7 @@
             {% endif %}
             {% for row in realm_data %}
             <option value='{{ row|lower }}'>{{ row }}</option>
-            {% endfor %} 
+            {% endfor %}
         </select>
         <input type="text" name="name_c" id="name_c" placeholder="Character" required> <BR>
         <input type="submit" value="Search" class="lookup-butn">
@@ -47,13 +49,13 @@
     </div>
     {% if char_data %}
     <div class="content-cont" id="content-container">
-        <div class="lookup-container">	
+        <div class="lookup-container">
             <div class="lookup-box">
                 <img src="https://render-eu.worldofwarcraft.com/character/{{ char_data[9] }}" height="52" width="52"><br>
                 <span>{{ char_data[0] }}</span><br>
                 <span>{{ char_data[6] }} @ {{ char_data[7] }}</span><br>
                 <span>Lvl. {{ char_data[4] }} {{ char_data[1] }}</span><br>
-                <span id="c_race">{{ char_data[2] }}</span> <span id="c_gender">{{ char_data[3] }}</span><br>                
+                <span id="c_race">{{ char_data[2] }}</span> <span id="c_gender">{{ char_data[3] }}</span><br>
                 <span>Item level {{ char_data[5] }}</span><br>
             </div>
             <div class="lookup-gear">
@@ -86,7 +88,7 @@
                 <span>Unique pets: {{ char_data[13] }}</span><br>
                 <span>Factions at exalted: {{ char_data[14] }}</span><br>
                 <span>Unique quests done: {{ char_data[15] }}</span><br>
-            </div>        
+            </div>
         </div>
         <p class="{{ color_class[char_data[1]] }}-lookup">{{ char_data[16] }}</p>
     </div>
