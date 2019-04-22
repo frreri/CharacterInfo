@@ -9,8 +9,6 @@
     line-height: 160%;
     height: 300px;
     width: 235px;
-    /* display: inline-block; */
-    /* justify-content: flex-end; */
     margin-left:0%;
     margin-right:0%;
 }
@@ -27,10 +25,9 @@
   line-height: 160%;
   height: 340px;
   width: 240px;
-  /* display: inline-block; */
+  flex-shrink: 0;
 }
 .lookup-gear {
-  /* justify-content: flex-end; */
   margin-right:0.5%;
   margin-left:0.5%;
   margin-top:0%;
