@@ -25,6 +25,13 @@
     font-size:80%;
     font-style: italic;
 }
+.flex-container {
+    display: flex;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
 .big-headline {
     font-size: 500%;
 }
@@ -75,7 +82,7 @@ img {
     margin-top:0%;
     margin-bottom:0%;
 }
-.content-cont {
+.hideable-content {
     margin-top:0;
     margin-bottom:0;
 }

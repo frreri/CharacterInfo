@@ -29,14 +29,14 @@
 {% if err_msg %}
 <p class="search-error">{{ err_msg }}</p>
 {% endif %}
-<div class="lookup-container" id="load-anim" style="display:none">
+<div class="flex-container" id="load-anim" style="display:none">
     <div class="load-anim">
         <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
     </div>
 </div>
 {% if char_data %}
-<div class="content-cont" id="content-container">
-    <div class="lookup-container">
+<div class="hideable-content">
+    <div class="flex-container">
         <div class="lookup-box">
             <img src="https://render-eu.worldofwarcraft.com/character/{{ char_data[9] }}" height="52" width="52"><br>
             <span>{{ char_data[0] }}</span><br>
@@ -79,8 +79,10 @@
     <p class="{{ color_class[char_data[1]] }}-lookup">{{ char_data[16] }}</p>
 </div>
 {% else %}
-<div class="lookup-container" id="content-container">
+<div class="hideable-content">
+    <div class="flex-container">
 
+    </div>
 </div>
 {% endif %}
 {% endblock content %}
