@@ -34,7 +34,10 @@
 }
 .flex-containter-nowrap {
     display: flex;
-    margin: auto;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top: 1%;
+    margin-bottom: 1;
     align-items: center;
     justify-content: center;
     flex-wrap: nowrap;
