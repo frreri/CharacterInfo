@@ -36,6 +36,7 @@
 </div>
 {% if char_data %}
 <div class="hideable-content" id="hideable-content">
+    <p class="{{ color_class[char_data[1]] }}-lookup">{{ char_data[16] }}</p>
     <div class="flex-container">
         <div class="lookup-box">
             <img src="https://render-eu.worldofwarcraft.com/character/{{ char_data[9] }}" height="52" width="52"><br>
@@ -78,7 +79,6 @@
             <span>Unique quests done: {{ char_data[15] }}</span><br>
         </div>
     </div>
-    <p class="{{ color_class[char_data[1]] }}-lookup">{{ char_data[16] }}</p>
 </div>
 {% else %}
 <div class="hideable-content" id="hideable-content">
