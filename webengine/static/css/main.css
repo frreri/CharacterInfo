@@ -32,6 +32,14 @@
     justify-content: center;
     flex-wrap: wrap;
 }
+.flex-containter-nowrap {
+    display: flex;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+}
+
 .big-headline {
     font-size: 500%;
 }
