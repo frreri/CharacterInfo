@@ -72,111 +72,47 @@ input[type="text"] {
   display:none;
 }
 /* Class name tag */
-.death-knight-lookup{
+.name-box {
+  border: 2px solid white;
+  padding: 7px;
+  font-size:180%;
+  background-color: rgb(40,40,40);
+  width: 240px;
+  margin: 0px auto;
+}
+.death-knight-color{
   color:#C41F3B;
-  border: 2px solid white;
-  padding: 7px;
-  font-size:180%;
-  background-color: rgb(40,40,40);
-  width: 240px;
-  margin: 0px auto;
 }
-.demon-hunter-lookup{
+.demon-hunter-color{
   color:#A330C9;
-  border: 2px solid white;
-  padding: 7px;
-  font-size:180%;
-  background-color: rgb(40,40,40);
-  width: 240px;
-  margin: 0px auto;
 }
-.druid-lookup{
+.druid-color{
   color:#FF7D0A;
-  border: 2px solid white;
-  padding: 7px;
-  font-size:180%;
-  background-color: rgb(40,40,40);
-  width: 240px;
-  margin: 0px auto;
 }
-.hunter-lookup{
+.hunter-color{
   color:#ABD473;
-  border: 2px solid white;
-  padding: 7px;
-  font-size:180%;
-  background-color: rgb(40,40,40);
-  width: 240px;
-  margin: 0px auto;
 }
-.mage-lookup{
+.mage-color{
   color:#40C7EB;
-  border: 2px solid white;
-  padding: 7px;
-  font-size:180%;
-  background-color: rgb(40,40,40);
-  width: 240px;
-  margin: 0px auto;
 }
-.monk-lookup{
+.monk-color{
   color:#00FF96;
-  border: 2px solid white;
-  padding: 7px;
-  font-size:180%;
-  background-color: rgb(40,40,40);
-  width: 240px;
-  margin: 0px auto;
 }
-.paladin-lookup{
+.paladin-color{
   color:#F58CBA;
-  border: 2px solid white;
-  padding: 7px;
-  font-size:180%;
-  background-color: rgb(40,40,40);
-  width: 240px;
-  margin: 0px auto;
 }
-.priest-lookup{
+.priest-color{
   color:#FFFFFF;
-  border: 2px solid white;
-  padding: 7px;
-  font-size:180%;
-  background-color: rgb(40,40,40);
-  width: 240px;
-  margin: 0px auto;
 }
-.rogue-lookup{
+.rogue-color{
   color:#FFF569;
-  border: 2px solid white;
-  padding: 7px;
-  font-size:180%;
-  background-color: rgb(40,40,40);
-  width: 240px;
-  margin: 0px auto;
 }
-.shaman-lookup{
+.shaman-color{
   color:#0070DE;
-  border: 2px solid white;
-  padding: 7px;
-  font-size:180%;
-  background-color: rgb(40,40,40);
-  width: 240px;
-  margin: 0px auto;
 }
-.warlock-lookup{
+.warlock-color{
   color:#8787ED;
-  border: 2px solid white;
-  padding: 7px;
-  font-size:180%;
-  background-color: rgb(40,40,40);
-  width: 240px;
-  margin: 0px auto;
 }
-.warrior-lookup{
+.warrior-color{
   color:#C79C6E;
-  border: 2px solid white;
-  padding: 7px;
-  font-size:180%;
-  background-color: rgb(40,40,40);
-  width: 240px;
-  margin: 0px auto;
 }
