@@ -1,19 +1,19 @@
 {% extends "layout.html" %}
 {% block content %}
 <div class="flex-container-col">
-    <div class="big-headline">
+    <div class="token-headline">
     WoW Token Prices
     </div>
-    <div class="big-headline-mb0">
-    EU {{ data.eu.gold }}g
+    <div class="token-main-text">
+    <span class="region-color">EU</span> {{ data.eu.gold }}<span class="gold-color">g</span>
     </div>
     <p class="footnote">Last updated: {{data.eu.updated}}</p>
-    <div class="big-headline-mb0">
-    US {{ data.us.gold }}g
+    <div class="token-main-text">
+    <span class="region-color">US</span> {{ data.us.gold }}<span class="gold-color">g</span>
     </div>
     <p class="footnote">Last updated: {{data.us.updated}}</p>
-    <div class="big-headline-mb0">
-    KR {{ data.kr.gold }}g
+    <div class="token-main-text">
+    <span class="region-color">KR</span> {{ data.kr.gold }}<span class="gold-color">g</span>
     </div>
     <p class="footnote">Last updated: {{data.kr.updated}}</p>
 </div>

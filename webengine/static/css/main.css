@@ -49,8 +49,11 @@
 .big-headline {
   font-size: 500%;
 }
-.big-headline-mb0 {
-  font-size: 500%;
+.token-headline{
+  font-size: 350%;
+}
+.token-main-text {
+  font-size: 350%;
   margin-bottom: 0%;
 }
 .toplist-grp {
@@ -218,4 +221,10 @@ img {
 }
 .warrior-color{
   color:#C79C6E;
+}
+.gold-color{
+  color: #FFDF00;
+}
+.region-color{
+  color: #a335ee;
 }
