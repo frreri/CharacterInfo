@@ -1,4 +1,5 @@
 from wowapi import WowApi
+from datetime import datetime
 from config import APIconfig
 api = WowApi(APIconfig.CLIENT_ID, APIconfig.CLIENT_SECRET)
 races = {1 : "Human",2 : "Orc",3 : "Dwarf",4 : "Night Elf",5 : "Undead",6 : "Tauren",7 : "Gnome",8 : "Troll",9 : "Goblin",10 : "Blood Elf",11 : "Draenei",22 : "Worgen",
@@ -80,3 +81,13 @@ def APIfetchChar(realm,character):
     wow_c.append('https://www.wowhead.com/item='+str(wowchar['items']['trinket2']['id'])+'&bonus='+bonusadd('trinket2',len(wowchar['items']['trinket2']['bonusLists'])))
 
     return wow_c
+
+def get_token_gold():
+    regions = {'eu':'dynamic-eu','us':'dynamic-us','kr':'dynamic-kr'}
+    tokeninfo_dict = {}
+    for key, val in regions.items():
+        tokeninfo = api.get_token(key, val)
+        gold_amount = '{:,}'.format(int(tokeninfo['price']/10000))
+        last_updated = datetime.fromtimestamp(tokeninfo['last_updated_timestamp']/1e3).strftime('%Y-%m-%d, %H:%M')
+        tokeninfo_dict.update({key:{'gold':gold_amount, 'updated':last_updated}})
+    return tokeninfo_dict

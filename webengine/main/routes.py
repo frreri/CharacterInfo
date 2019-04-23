@@ -54,3 +54,8 @@ def output():
 def roster_list():
     g_roster = SQLfetcher.SQLfetchAll()
     return render_template('roster.html', data=g_roster, color_class=body_class , class_c="captain-p")
+
+@main.route('/token', methods=['GET'])
+def get_token_info():
+    token_info = APIfetcher.get_token_gold()
+    return render_template('gold_token.html', data=token_info, title='Token')
