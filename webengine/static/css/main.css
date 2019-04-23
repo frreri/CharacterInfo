@@ -38,9 +38,20 @@
   justify-content: center;
   flex-wrap: nowrap;
 }
-
+.flex-container-col {
+  display: flex;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
 .big-headline {
   font-size: 500%;
+}
+.big-headline-mb0 {
+  font-size: 500%;
+  margin-bottom: 0%;
 }
 .toplist-grp {
   margin-top: 1%;

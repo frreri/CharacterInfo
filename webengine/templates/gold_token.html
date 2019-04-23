@@ -1,18 +1,18 @@
 {% extends "layout.html" %}
 {% block content %}
-<div class="flex-container">
+<div class="flex-container-col">
     <div class="big-headline">
     WoW Token Prices
     </div>
-    <div class="big-headline">
+    <div class="big-headline-mb0">
     EU {{ data.eu.gold }}g
     </div>
     <p class="footnote">Last updated: {{data.eu.updated}}</p>
-    <div class="big-headline">
+    <div class="big-headline-mb0">
     US {{ data.us.gold }}g
     </div>
     <p class="footnote">Last updated: {{data.us.updated}}</p>
-    <div class="big-headline">
+    <div class="big-headline-mb0">
     KR {{ data.kr.gold }}g
     </div>
     <p class="footnote">Last updated: {{data.kr.updated}}</p>
