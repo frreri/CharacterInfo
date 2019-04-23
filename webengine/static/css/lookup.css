@@ -1,16 +1,16 @@
 .lookup-box {
-    box-shadow: 0 1px 3px rgba(0,0,0,0.3),1px 0 3px rgba(0,0,0,0.3), 0 -1px 3px rgba(0,0,0,0.3),-1px 0px 3px rgba(0,0,0,0.3);
-    background-color: rgb(40, 40, 40);
-    border: 2px solid white;
-    color: white;
-    text-shadow: none;
-    padding: 7px 7px 2px 7px;
-    text-align: center;
-    line-height: 160%;
-    height: 300px;
-    width: 240px;
-    margin-left:0%;
-    margin-right:0%;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.3),1px 0 3px rgba(0,0,0,0.3), 0 -1px 3px rgba(0,0,0,0.3),-1px 0px 3px rgba(0,0,0,0.3);
+  background-color: rgb(40, 40, 40);
+  border: 2px solid white;
+  color: white;
+  text-shadow: none;
+  padding: 7px 7px 2px 7px;
+  text-align: center;
+  line-height: 160%;
+  height: 300px;
+  width: 240px;
+  margin-left:0%;
+  margin-right:0%;
 }
 .lookup-picbox {
   box-shadow: 0 1px 3px rgba(0,0,0,0.3),1px 0 3px rgba(0,0,0,0.3), 0 -1px 3px rgba(0,0,0,0.3),-1px 0px 3px rgba(0,0,0,0.3);
@@ -71,7 +71,6 @@ input[type="text"] {
 .hidden {
   display:none;
 }
-/* Class name tag */
 .name-box {
   border: 2px solid white;
   padding: 7px;
@@ -79,40 +78,4 @@ input[type="text"] {
   background-color: rgb(40,40,40);
   width: 240px;
   margin: 0px auto;
-}
-.death-knight-color{
-  color:#C41F3B;
-}
-.demon-hunter-color{
-  color:#A330C9;
-}
-.druid-color{
-  color:#FF7D0A;
-}
-.hunter-color{
-  color:#ABD473;
-}
-.mage-color{
-  color:#40C7EB;
-}
-.monk-color{
-  color:#00FF96;
-}
-.paladin-color{
-  color:#F58CBA;
-}
-.priest-color{
-  color:#FFFFFF;
-}
-.rogue-color{
-  color:#FFF569;
-}
-.shaman-color{
-  color:#0070DE;
-}
-.warlock-color{
-  color:#8787ED;
-}
-.warrior-color{
-  color:#C79C6E;
 }
