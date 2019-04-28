@@ -29,5 +29,3 @@ Right now the application does not contain database table creation for some of i
 I will change all database communication to SQLAlchemy in the near future which will fix that.
 
 User accounts and logged in features are in the works.
-
-HEJ HEJ
