@@ -31,3 +31,4 @@ I will change all database communication to SQLAlchemy in the near future which 
 User accounts and logged in features are in the works.
 
 KEBABFISK!!!
+Abraham
