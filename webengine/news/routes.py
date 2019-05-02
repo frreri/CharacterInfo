@@ -1,3 +1,3 @@
 from flask import Blueprint
 
-news = Blueprint('news', __name__)
+news = Blueprint("news", __name__)
