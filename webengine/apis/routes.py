@@ -1,5 +1,5 @@
 from flask import Blueprint, request, jsonify, abort, render_template
-from webengine.apis import charAPI as myAPI
+from webengine.apis import APIfetcher as myAPI
 from webengine.mysql import SQLfetcher
 
 apis = Blueprint("apis", __name__)
@@ -31,7 +31,7 @@ def get_character():
         abort(400)
 
     try:
-        api_profile = myAPI.API_get_profile(api_region, api_realm, api_character)
+        api_profile = myAPI.APIfetchChar(api_region, api_realm, api_character)
         api_response = {
             "title": api_profile[0],
             "class": api_profile[1],
