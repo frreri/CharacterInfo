@@ -49,7 +49,7 @@ def char_search(wowrealm, wowcharacter):
         and wowrealm in realmlist_l
     ):
         try:
-            char_profile = APIfetcher.APIfetchChar(wowrealm, wowcharacter)
+            char_profile = APIfetcher.APIfetchChar("eu", wowrealm, wowcharacter, "gear")
             SQLfetcher.SQLinsert(char_profile, "WEB")
             return render_template(
                 "lookup.html",

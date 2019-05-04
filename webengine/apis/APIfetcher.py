@@ -45,9 +45,12 @@ classes = [
 genders = ["Male", "Female"]
 
 
-def APIfetchChar(realm, character):
+def APIfetchChar(region, realm, character, gear=None):
+
+    include_gear = gear
+
     wowchar = api.get_character_profile(
-        "eu",
+        region,
         realm,
         character,
         fields="items,guild,titles,mounts,pets,statistics,quests",
@@ -108,121 +111,122 @@ def APIfetchChar(realm, character):
     wow_c.append(quest_count)
     wow_c.append(wowchar["name"])
     # Below is gear
-    wow_c.append(
-        "https://www.wowhead.com/item="
-        + str(wowchar["items"]["head"]["id"])
-        + "&bonus="
-        + bonusadd("head", len(wowchar["items"]["head"]["bonusLists"]))
-    )
-    wow_c.append(
-        "https://www.wowhead.com/item="
-        + str(wowchar["items"]["neck"]["id"])
-        + "&bonus="
-        + bonusadd("neck", len(wowchar["items"]["neck"]["bonusLists"]))
-    )
-    wow_c.append(
-        "https://www.wowhead.com/item="
-        + str(wowchar["items"]["shoulder"]["id"])
-        + "&bonus="
-        + bonusadd("shoulder", len(wowchar["items"]["shoulder"]["bonusLists"]))
-    )
-    wow_c.append(
-        "https://www.wowhead.com/item="
-        + str(wowchar["items"]["back"]["id"])
-        + "&bonus="
-        + bonusadd("back", len(wowchar["items"]["back"]["bonusLists"]))
-    )
-    wow_c.append(
-        "https://www.wowhead.com/item="
-        + str(wowchar["items"]["chest"]["id"])
-        + "&bonus="
-        + bonusadd("chest", len(wowchar["items"]["chest"]["bonusLists"]))
-    )
-    wow_c.append(
-        "https://www.wowhead.com/item="
-        + str(wowchar["items"]["wrist"]["id"])
-        + "&bonus="
-        + bonusadd("wrist", len(wowchar["items"]["wrist"]["bonusLists"]))
-    )
-    if "offHand" in wowchar["items"]:
+    if include_gear == "gear":
         wow_c.append(
-            '<a href="'
-            + "https://www.wowhead.com/item="
-            + str(wowchar["items"]["mainHand"]["id"])
+            "https://www.wowhead.com/item="
+            + str(wowchar["items"]["head"]["id"])
             + "&bonus="
-            + bonusadd("mainHand", len(wowchar["items"]["mainHand"]["bonusLists"]))
-            + '" target='
-            + '"_blank'
-            + '"><span class='
-            + '"hidden">Mainhand</span></a><br>'
+            + bonusadd("head", len(wowchar["items"]["head"]["bonusLists"]))
         )
         wow_c.append(
             "https://www.wowhead.com/item="
-            + str(wowchar["items"]["offHand"]["id"])
+            + str(wowchar["items"]["neck"]["id"])
             + "&bonus="
-            + bonusadd("offHand", len(wowchar["items"]["offHand"]["bonusLists"]))
+            + bonusadd("neck", len(wowchar["items"]["neck"]["bonusLists"]))
         )
-    else:
         wow_c.append(
-            '<br><br><a href="'
-            + "https://www.wowhead.com/item="
-            + str(wowchar["items"]["mainHand"]["id"])
+            "https://www.wowhead.com/item="
+            + str(wowchar["items"]["shoulder"]["id"])
             + "&bonus="
-            + bonusadd("mainHand", len(wowchar["items"]["mainHand"]["bonusLists"]))
-            + '" target='
-            + '"_blank'
-            + '"><span class='
-            + '"hidden">Mainhand</span></a><br>'
+            + bonusadd("shoulder", len(wowchar["items"]["shoulder"]["bonusLists"]))
         )
-        wow_c.append("Placeholder")
-    wow_c.append(
-        "https://www.wowhead.com/item="
-        + str(wowchar["items"]["hands"]["id"])
-        + "&bonus="
-        + bonusadd("hands", len(wowchar["items"]["hands"]["bonusLists"]))
-    )
-    wow_c.append(
-        "https://www.wowhead.com/item="
-        + str(wowchar["items"]["waist"]["id"])
-        + "&bonus="
-        + bonusadd("waist", len(wowchar["items"]["waist"]["bonusLists"]))
-    )
-    wow_c.append(
-        "https://www.wowhead.com/item="
-        + str(wowchar["items"]["legs"]["id"])
-        + "&bonus="
-        + bonusadd("legs", len(wowchar["items"]["legs"]["bonusLists"]))
-    )
-    wow_c.append(
-        "https://www.wowhead.com/item="
-        + str(wowchar["items"]["feet"]["id"])
-        + "&bonus="
-        + bonusadd("feet", len(wowchar["items"]["feet"]["bonusLists"]))
-    )
-    wow_c.append(
-        "https://www.wowhead.com/item="
-        + str(wowchar["items"]["finger1"]["id"])
-        + "&bonus="
-        + bonusadd("finger1", len(wowchar["items"]["finger1"]["bonusLists"]))
-    )
-    wow_c.append(
-        "https://www.wowhead.com/item="
-        + str(wowchar["items"]["finger2"]["id"])
-        + "&bonus="
-        + bonusadd("finger2", len(wowchar["items"]["finger2"]["bonusLists"]))
-    )
-    wow_c.append(
-        "https://www.wowhead.com/item="
-        + str(wowchar["items"]["trinket1"]["id"])
-        + "&bonus="
-        + bonusadd("trinket1", len(wowchar["items"]["trinket1"]["bonusLists"]))
-    )
-    wow_c.append(
-        "https://www.wowhead.com/item="
-        + str(wowchar["items"]["trinket2"]["id"])
-        + "&bonus="
-        + bonusadd("trinket2", len(wowchar["items"]["trinket2"]["bonusLists"]))
-    )
+        wow_c.append(
+            "https://www.wowhead.com/item="
+            + str(wowchar["items"]["back"]["id"])
+            + "&bonus="
+            + bonusadd("back", len(wowchar["items"]["back"]["bonusLists"]))
+        )
+        wow_c.append(
+            "https://www.wowhead.com/item="
+            + str(wowchar["items"]["chest"]["id"])
+            + "&bonus="
+            + bonusadd("chest", len(wowchar["items"]["chest"]["bonusLists"]))
+        )
+        wow_c.append(
+            "https://www.wowhead.com/item="
+            + str(wowchar["items"]["wrist"]["id"])
+            + "&bonus="
+            + bonusadd("wrist", len(wowchar["items"]["wrist"]["bonusLists"]))
+        )
+        if "offHand" in wowchar["items"]:
+            wow_c.append(
+                '<a href="'
+                + "https://www.wowhead.com/item="
+                + str(wowchar["items"]["mainHand"]["id"])
+                + "&bonus="
+                + bonusadd("mainHand", len(wowchar["items"]["mainHand"]["bonusLists"]))
+                + '" target='
+                + '"_blank'
+                + '"><span class='
+                + '"hidden">Mainhand</span></a><br>'
+            )
+            wow_c.append(
+                "https://www.wowhead.com/item="
+                + str(wowchar["items"]["offHand"]["id"])
+                + "&bonus="
+                + bonusadd("offHand", len(wowchar["items"]["offHand"]["bonusLists"]))
+            )
+        else:
+            wow_c.append(
+                '<br><br><a href="'
+                + "https://www.wowhead.com/item="
+                + str(wowchar["items"]["mainHand"]["id"])
+                + "&bonus="
+                + bonusadd("mainHand", len(wowchar["items"]["mainHand"]["bonusLists"]))
+                + '" target='
+                + '"_blank'
+                + '"><span class='
+                + '"hidden">Mainhand</span></a><br>'
+            )
+            wow_c.append("Placeholder")
+        wow_c.append(
+            "https://www.wowhead.com/item="
+            + str(wowchar["items"]["hands"]["id"])
+            + "&bonus="
+            + bonusadd("hands", len(wowchar["items"]["hands"]["bonusLists"]))
+        )
+        wow_c.append(
+            "https://www.wowhead.com/item="
+            + str(wowchar["items"]["waist"]["id"])
+            + "&bonus="
+            + bonusadd("waist", len(wowchar["items"]["waist"]["bonusLists"]))
+        )
+        wow_c.append(
+            "https://www.wowhead.com/item="
+            + str(wowchar["items"]["legs"]["id"])
+            + "&bonus="
+            + bonusadd("legs", len(wowchar["items"]["legs"]["bonusLists"]))
+        )
+        wow_c.append(
+            "https://www.wowhead.com/item="
+            + str(wowchar["items"]["feet"]["id"])
+            + "&bonus="
+            + bonusadd("feet", len(wowchar["items"]["feet"]["bonusLists"]))
+        )
+        wow_c.append(
+            "https://www.wowhead.com/item="
+            + str(wowchar["items"]["finger1"]["id"])
+            + "&bonus="
+            + bonusadd("finger1", len(wowchar["items"]["finger1"]["bonusLists"]))
+        )
+        wow_c.append(
+            "https://www.wowhead.com/item="
+            + str(wowchar["items"]["finger2"]["id"])
+            + "&bonus="
+            + bonusadd("finger2", len(wowchar["items"]["finger2"]["bonusLists"]))
+        )
+        wow_c.append(
+            "https://www.wowhead.com/item="
+            + str(wowchar["items"]["trinket1"]["id"])
+            + "&bonus="
+            + bonusadd("trinket1", len(wowchar["items"]["trinket1"]["bonusLists"]))
+        )
+        wow_c.append(
+            "https://www.wowhead.com/item="
+            + str(wowchar["items"]["trinket2"]["id"])
+            + "&bonus="
+            + bonusadd("trinket2", len(wowchar["items"]["trinket2"]["bonusLists"]))
+        )
 
     return wow_c
 
