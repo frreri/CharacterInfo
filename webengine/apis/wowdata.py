@@ -45,7 +45,7 @@ classes = [
 genders = ["Male", "Female"]
 
 
-def APIfetchChar(region, realm, character, gear=None):
+def get_character(region, realm, character, gear=None):
 
     include_gear = gear
 

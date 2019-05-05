@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template
 from webengine.mysql import SQLfetcher
-from webengine.apis import APIfetcher
+from webengine.apis import wowdata
 
 main = Blueprint("main", __name__)
 
@@ -49,7 +49,7 @@ def char_search(wowrealm, wowcharacter):
         and wowrealm in realmlist_l
     ):
         try:
-            char_profile = APIfetcher.APIfetchChar("eu", wowrealm, wowcharacter, "gear")
+            char_profile = wowdata.get_character("eu", wowrealm, wowcharacter, "gear")
             SQLfetcher.SQLinsert(char_profile, "WEB")
             return render_template(
                 "lookup.html",
@@ -111,5 +111,5 @@ def roster_list():
 
 @main.route("/token", methods=["GET"])
 def get_token_info():
-    token_info = APIfetcher.get_token_gold()
+    token_info = wowdata.get_token_gold()
     return render_template("gold_token.html", data=token_info, title="Token")
