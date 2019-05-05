@@ -56,6 +56,22 @@ professions = [
     "Inscription",
     "Tailoring",
 ]
+item_list = [
+    "head",
+    "neck",
+    "shoulder",
+    "back",
+    "chest",
+    "wrist",
+    "hands",
+    "waist",
+    "legs",
+    "feet",
+    "finger1",
+    "finger2",
+    "trinket1",
+    "trinket2",
+]
 
 
 def get_character(region, realm, character, gear=None):
@@ -68,6 +84,13 @@ def get_character(region, realm, character, gear=None):
         fields="items,guild,titles,mounts,pets,statistics,quests,professions",
     )
 
+    wow_c = {}
+    pet_name = []
+    learned_professions = []
+    pet_count = 0
+    title_count = 0
+    quest_count = 0
+
     def bonusadd(type, length):
         result = ""
         count = 0
@@ -76,12 +99,64 @@ def get_character(region, realm, character, gear=None):
             count += 1
         return result[1:]
 
-    wow_c = {}
-    pet_name = []
-    learned_professions = []
-    pet_count = 0
-    title_count = 0
-    quest_count = 0
+    def additems():
+        for item in wowchar["items"]:
+            if item in item_list:
+                wow_c.update(
+                    {
+                        item: "https://www.wowhead.com/item="
+                        + str(wowchar["items"][item]["id"])
+                        + "&bonus="
+                        + bonusadd(item, len(wowchar["items"][item]["bonusLists"]))
+                    }
+                )
+            if "offHand" in wowchar["items"]:
+                wow_c.update(
+                    {
+                        "mainhand": '<a href="'
+                        + "https://www.wowhead.com/item="
+                        + str(wowchar["items"]["mainHand"]["id"])
+                        + "&bonus="
+                        + bonusadd(
+                            "mainHand", len(wowchar["items"]["mainHand"]["bonusLists"])
+                        )
+                        + '" target='
+                        + '"_blank'
+                        + '"><span class='
+                        + '"hidden">Mainhand</span></a><br>'
+                    }
+                )
+                wow_c.update(
+                    {
+                        "offhand": "https://www.wowhead.com/item="
+                        + str(wowchar["items"]["offHand"]["id"])
+                        + "&bonus="
+                        + bonusadd(
+                            "offHand", len(wowchar["items"]["offHand"]["bonusLists"])
+                        )
+                    }
+                )
+            elif "mainHand" in wowchar["items"]:
+                wow_c.update(
+                    {
+                        "mainhand": '<br><br><a href="'
+                        + "https://www.wowhead.com/item="
+                        + str(wowchar["items"]["mainHand"]["id"])
+                        + "&bonus="
+                        + bonusadd(
+                            "mainHand", len(wowchar["items"]["mainHand"]["bonusLists"])
+                        )
+                        + '" target='
+                        + '"_blank'
+                        + '"><span class='
+                        + '"hidden">Mainhand</span></a><br>'
+                    }
+                )
+                wow_c.update({"offhand": "Placeholder"})
+            else:
+                wow_c.update({"mainhand": "Placeholder"})
+                wow_c.update({"offhand": "Placeholder"})
+
     for title in wowchar["titles"]:
         if "selected" in title:
             wow_c.update({"name_with_title": title["name"] % (wowchar["name"])})
@@ -137,162 +212,9 @@ def get_character(region, realm, character, gear=None):
         wow_c.update({"profession2": learned_professions[1]})
     except:
         wow_c.update({"profession2": "No profession"})
+
     if include_gear == "gear":
-        wow_c.update(
-            {
-                "head": "https://www.wowhead.com/item="
-                + str(wowchar["items"]["head"]["id"])
-                + "&bonus="
-                + bonusadd("head", len(wowchar["items"]["head"]["bonusLists"]))
-            }
-        )
-        wow_c.update(
-            {
-                "neck": "https://www.wowhead.com/item="
-                + str(wowchar["items"]["neck"]["id"])
-                + "&bonus="
-                + bonusadd("neck", len(wowchar["items"]["neck"]["bonusLists"]))
-            }
-        )
-        wow_c.update(
-            {
-                "shoulder": "https://www.wowhead.com/item="
-                + str(wowchar["items"]["shoulder"]["id"])
-                + "&bonus="
-                + bonusadd("shoulder", len(wowchar["items"]["shoulder"]["bonusLists"]))
-            }
-        )
-        wow_c.update(
-            {
-                "back": "https://www.wowhead.com/item="
-                + str(wowchar["items"]["back"]["id"])
-                + "&bonus="
-                + bonusadd("back", len(wowchar["items"]["back"]["bonusLists"]))
-            }
-        )
-        wow_c.update(
-            {
-                "chest": "https://www.wowhead.com/item="
-                + str(wowchar["items"]["chest"]["id"])
-                + "&bonus="
-                + bonusadd("chest", len(wowchar["items"]["chest"]["bonusLists"]))
-            }
-        )
-        wow_c.update(
-            {
-                "wrist": "https://www.wowhead.com/item="
-                + str(wowchar["items"]["wrist"]["id"])
-                + "&bonus="
-                + bonusadd("wrist", len(wowchar["items"]["wrist"]["bonusLists"]))
-            }
-        )
-        if "offHand" in wowchar["items"]:
-            wow_c.update(
-                {
-                    "mainhand": '<a href="'
-                    + "https://www.wowhead.com/item="
-                    + str(wowchar["items"]["mainHand"]["id"])
-                    + "&bonus="
-                    + bonusadd(
-                        "mainHand", len(wowchar["items"]["mainHand"]["bonusLists"])
-                    )
-                    + '" target='
-                    + '"_blank'
-                    + '"><span class='
-                    + '"hidden">Mainhand</span></a><br>'
-                }
-            )
-            wow_c.update(
-                {
-                    "offhand": "https://www.wowhead.com/item="
-                    + str(wowchar["items"]["offHand"]["id"])
-                    + "&bonus="
-                    + bonusadd(
-                        "offHand", len(wowchar["items"]["offHand"]["bonusLists"])
-                    )
-                }
-            )
-        else:
-            wow_c.update(
-                {
-                    "mainhand": '<br><br><a href="'
-                    + "https://www.wowhead.com/item="
-                    + str(wowchar["items"]["mainHand"]["id"])
-                    + "&bonus="
-                    + bonusadd(
-                        "mainHand", len(wowchar["items"]["mainHand"]["bonusLists"])
-                    )
-                    + '" target='
-                    + '"_blank'
-                    + '"><span class='
-                    + '"hidden">Mainhand</span></a><br>'
-                }
-            )
-            wow_c.update({"offhand": "Placeholder"})
-        wow_c.update(
-            {
-                "hands": "https://www.wowhead.com/item="
-                + str(wowchar["items"]["hands"]["id"])
-                + "&bonus="
-                + bonusadd("hands", len(wowchar["items"]["hands"]["bonusLists"]))
-            }
-        )
-        wow_c.update(
-            {
-                "waist": "https://www.wowhead.com/item="
-                + str(wowchar["items"]["waist"]["id"])
-                + "&bonus="
-                + bonusadd("waist", len(wowchar["items"]["waist"]["bonusLists"]))
-            }
-        )
-        wow_c.update(
-            {
-                "legs": "https://www.wowhead.com/item="
-                + str(wowchar["items"]["legs"]["id"])
-                + "&bonus="
-                + bonusadd("legs", len(wowchar["items"]["legs"]["bonusLists"]))
-            }
-        )
-        wow_c.update(
-            {
-                "feet": "https://www.wowhead.com/item="
-                + str(wowchar["items"]["feet"]["id"])
-                + "&bonus="
-                + bonusadd("feet", len(wowchar["items"]["feet"]["bonusLists"]))
-            }
-        )
-        wow_c.update(
-            {
-                "finger1": "https://www.wowhead.com/item="
-                + str(wowchar["items"]["finger1"]["id"])
-                + "&bonus="
-                + bonusadd("finger1", len(wowchar["items"]["finger1"]["bonusLists"]))
-            }
-        )
-        wow_c.update(
-            {
-                "finger2": "https://www.wowhead.com/item="
-                + str(wowchar["items"]["finger2"]["id"])
-                + "&bonus="
-                + bonusadd("finger2", len(wowchar["items"]["finger2"]["bonusLists"]))
-            }
-        )
-        wow_c.update(
-            {
-                "trinket1": "https://www.wowhead.com/item="
-                + str(wowchar["items"]["trinket1"]["id"])
-                + "&bonus="
-                + bonusadd("trinket1", len(wowchar["items"]["trinket1"]["bonusLists"]))
-            }
-        )
-        wow_c.update(
-            {
-                "trinket2": "https://www.wowhead.com/item="
-                + str(wowchar["items"]["trinket2"]["id"])
-                + "&bonus="
-                + bonusadd("trinket2", len(wowchar["items"]["trinket2"]["bonusLists"]))
-            }
-        )
+        additems()
 
     return wow_c
 
