@@ -132,11 +132,11 @@ def get_character(region, realm, character, gear=None):
     try:
         wow_c.update({"profession1": learned_professions[0]})
     except:
-        wow_c.update({"profession1": "Not learned"})
+        wow_c.update({"profession1": "No profession"})
     try:
         wow_c.update({"profession2": learned_professions[1]})
     except:
-        wow_c.update({"profession2": "Not learned"})
+        wow_c.update({"profession2": "No profession"})
     if include_gear == "gear":
         wow_c.update(
             {

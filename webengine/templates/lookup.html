@@ -45,8 +45,7 @@
             <span>Lvl. {{ char_data.level }} {{ char_data.class }}</span><br>
             <span id="c_race">{{ char_data.race }}</span> <span id="c_gender">{{ char_data.gender }}</span><br>
             <span>Item level {{ char_data.ilvl }}</span><br><br>
-            <span>Professions:</span><br>
-            {% if char_data.profession2 == "Not learned" %}
+            {% if char_data.profession2 == "No profession" %}
             <span>{{ char_data.profession1 }}</span><br>
             {% else %}
             <span>{{ char_data.profession1 }} & {{ char_data.profession2 }}</span><br>
