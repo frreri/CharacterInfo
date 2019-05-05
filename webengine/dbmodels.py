@@ -50,6 +50,9 @@ class Post(db.Model):
     content = db.Column(db.Text, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
 
+    def __repr__(self):
+        return "Post('{}', '{}')".format(self.title, self.date_posted)
+
 
 # class Realm(db.Model):
 #     id = db.Column(db.Integer, primary_key=True)
@@ -57,6 +60,3 @@ class Post(db.Model):
 #     realm_name = db.Column(db.String(40), nullable=False)
 
 # class Roster(db.Model):
-
-#     def __repr__(self):
-#         return "Post('{}', '{}')".format(self.title,self.date_posted)
