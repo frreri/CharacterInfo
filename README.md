@@ -7,15 +7,18 @@ To be able to run this a config.py file needs to be created in the repository ro
 class AppConfig:
     SECRET_KEY = 'A secret key for your app'
     SQLALCHEMY_DATABASE_URI = 'SQL alchemy db uri'
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
     MAIL_SERVER = 'server'
     MAIL_PORT = 587
     MAIL_USE_TLS = True
     MAIL_USERNAME = 'email'
     MAIL_PASSWORD = 'pass'
 
+
 class APIconfig:
     CLIENT_ID = 'Your Blizzard api client id'
     CLIENT_SECRET = 'Your Blizzard api client secret'
+
 
 class MySQLconfig:
     MYSQL_HOST = 'host'
