@@ -71,6 +71,8 @@ item_list = [
     "finger2",
     "trinket1",
     "trinket2",
+    "mainHand",
+    "offHand",
 ]
 
 
@@ -110,52 +112,8 @@ def get_character(region, realm, character, gear=None):
                         + bonusadd(item, len(wowchar["items"][item]["bonusLists"]))
                     }
                 )
-            if "offHand" in wowchar["items"]:
-                wow_c.update(
-                    {
-                        "mainhand": '<a href="'
-                        + "https://www.wowhead.com/item="
-                        + str(wowchar["items"]["mainHand"]["id"])
-                        + "&bonus="
-                        + bonusadd(
-                            "mainHand", len(wowchar["items"]["mainHand"]["bonusLists"])
-                        )
-                        + '" target='
-                        + '"_blank'
-                        + '"><span class='
-                        + '"hidden">Mainhand</span></a><br>'
-                    }
-                )
-                wow_c.update(
-                    {
-                        "offhand": "https://www.wowhead.com/item="
-                        + str(wowchar["items"]["offHand"]["id"])
-                        + "&bonus="
-                        + bonusadd(
-                            "offHand", len(wowchar["items"]["offHand"]["bonusLists"])
-                        )
-                    }
-                )
-            elif "mainHand" in wowchar["items"]:
-                wow_c.update(
-                    {
-                        "mainhand": '<br><br><a href="'
-                        + "https://www.wowhead.com/item="
-                        + str(wowchar["items"]["mainHand"]["id"])
-                        + "&bonus="
-                        + bonusadd(
-                            "mainHand", len(wowchar["items"]["mainHand"]["bonusLists"])
-                        )
-                        + '" target='
-                        + '"_blank'
-                        + '"><span class='
-                        + '"hidden">Mainhand</span></a><br>'
-                    }
-                )
-                wow_c.update({"offhand": "Placeholder"})
-            else:
-                wow_c.update({"mainhand": "Placeholder"})
-                wow_c.update({"offhand": "Placeholder"})
+        if "offHand" not in wow_c:
+            wow_c.update({"offHand": "Placeholder"})
 
     for title in wowchar["titles"]:
         if "selected" in title:

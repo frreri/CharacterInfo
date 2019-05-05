@@ -59,8 +59,8 @@
                 <a href="{{ char_data.back }}" target="_blank"><span class="hidden">Back</span></a><br>
                 <a href="{{ char_data.chest }}" target="_blank"><span class="hidden">Chest</span></a><br>
                 <a href="{{ char_data.wrist }}" target="_blank"><span class="hidden">Wrist</span></a><br>
-                {{ char_data.mainhand|safe }}
-                <a href="{{ char_data.offhand }}" target="_blank"><span class="hidden">Offhand</span></a>
+                {% if char_data.offHand == "Placeholder" %}<br><br>{% endif %}<a href="{{ char_data.mainHand }}" target="_blank"><span class="hidden">Mainhand</span></a>
+                <a href="{{ char_data.offHand }}" target="_blank"><span class="hidden">Offhand</span></a>
             </div>
             <div class="lookup-picbox" id="picbox" style='background: url("{{ char_data.image }}") #000 no-repeat center center;background-size: 800px 600px;background-position: 50% 62%;'>
             </div>
