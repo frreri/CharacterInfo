@@ -1,81 +1,93 @@
 .lookup-box {
-  box-shadow: 0 1px 3px rgba(0,0,0,0.3),1px 0 3px rgba(0,0,0,0.3), 0 -1px 3px rgba(0,0,0,0.3),-1px 0px 3px rgba(0,0,0,0.3);
-  background-color: rgb(40, 40, 40);
-  border: 2px solid white;
-  color: white;
-  text-shadow: none;
-  padding: 7px 7px 2px 7px;
-  text-align: center;
-  line-height: 160%;
-  height: 300px;
-  width: 240px;
-  margin-left:0%;
-  margin-right:0%;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3), 1px 0 3px rgba(0, 0, 0, 0.3), 0 -1px 3px rgba(0, 0, 0, 0.3), -1px 0px 3px rgba(0, 0, 0, 0.3);
+    background-color: rgb(40, 40, 40);
+    border: 2px solid white;
+    color: white;
+    text-shadow: none;
+    padding: 7px 7px 2px 7px;
+    text-align: center;
+    line-height: 160%;
+    height: 310px;
+    width: 250px;
+    margin-left: 0%;
+    margin-right: 0%;
 }
+
 .lookup-picbox {
-  box-shadow: 0 1px 3px rgba(0,0,0,0.3),1px 0 3px rgba(0,0,0,0.3), 0 -1px 3px rgba(0,0,0,0.3),-1px 0px 3px rgba(0,0,0,0.3);
-  background-color: rgba(40, 40, 40, 0.8);
-  border: 2px solid white;
-  padding: 7px 7px 2px 7px;
-  margin: 0.5%;
-  height: 340px;
-  width: 240px;
-  flex-shrink: 0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3), 1px 0 3px rgba(0, 0, 0, 0.3), 0 -1px 3px rgba(0, 0, 0, 0.3), -1px 0px 3px rgba(0, 0, 0, 0.3);
+    background-color: rgba(40, 40, 40, 0.8);
+    border: 2px solid white;
+    padding: 7px 7px 2px 7px;
+    margin: 0.5%;
+    height: 340px;
+    width: 250px;
+    flex-shrink: 0;
 }
+
 .lookup-gear {
-  margin-right:0.5%;
-  margin-left:0.5%;
-  margin-top:0%;
-  margin-bottom:0%;
+    margin-right: 0.5%;
+    margin-left: 0.5%;
+    margin-top: 0%;
+    margin-bottom: 0%;
 }
+
 select {
-  border: none;
-  border-radius: 5px;
-  padding: 0 2px 0 2px;
-  height: 22px;
-  width: 155px;
+    border: none;
+    border-radius: 5px;
+    padding: 0 2px 0 2px;
+    height: 22px;
+    width: 155px;
 }
+
 select:required:invalid {
-  color: gray;
+    color: gray;
 }
+
 option[value=""][disabled] {
-  display: none;
+    display: none;
 }
+
 option {
-  color: black;
+    color: black;
 }
+
 input[type="text"] {
-  border: none;
-  border-radius: 5px;
-  height: 22px;
-  padding: 0 5px 0 5px;
-  width: 145px;
+    border: none;
+    border-radius: 5px;
+    height: 22px;
+    padding: 0 5px 0 5px;
+    width: 145px;
 }
-.lookup-butn{
-  margin-top: 10px;
-  margin-bottom: 20px;
-  border-radius: 6px;
-  padding: 8px 16px;
-  color: white;
-  background-color:rgb(67, 163, 70);
-  border: 1px solid white;
+
+.lookup-butn {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+    padding: 8px 16px;
+    color: white;
+    background-color: rgb(67, 163, 70);
+    border: 1px solid white;
 }
-.lookup-butn:hover{
-  background-color:rgb(47, 143, 50);
-  cursor: pointer;
+
+.lookup-butn:hover {
+    background-color: rgb(47, 143, 50);
+    cursor: pointer;
 }
+
 .search-error {
-  color:red;
-  text-shadow: -1px 0 3px black, 0 1px 3px black, 1px 0 3px black, 0 -1px 3px black;
+    color: red;
+    text-shadow: -1px 0 3px black, 0 1px 3px black, 1px 0 3px black, 0 -1px 3px black;
 }
+
 .hidden {
-  display:none;
+    display: none;
 }
+
 .name-box {
-  border: 2px solid white;
-  padding: 7px;
-  font-size:180%;
-  background-color: rgb(40,40,40);
-  width: 240px;
-  margin: 0px auto;
+    border: 2px solid white;
+    padding: 7px;
+    font-size: 180%;
+    background-color: rgb(40, 40, 40);
+    width: 250px;
+    margin: 0px auto;
 }
