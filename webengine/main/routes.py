@@ -26,20 +26,14 @@ no_thumb = "/static/images/frericon.png"
 @main.route("/", methods=["GET"])
 @main.route("/lookup", methods=["GET"])
 def char_lookup():
-    char_profile = []
     realmlist = SQLfetcher.SQLfetchRealm()
     return render_template(
-        "lookup.html",
-        char_data=char_profile,
-        realm_data=realmlist,
-        class_c="captain-p",
-        err_msg="",
+        "lookup.html", realm_data=realmlist, class_c="captain-p", err_msg=""
     )
 
 
 @main.route("/lookup/<wowrealm>/<wowcharacter>", methods=["GET"])
 def char_search(wowrealm, wowcharacter):
-    char_profile = []
     realmlist = SQLfetcher.SQLfetchRealm()
     realmlist_l = SQLfetcher.SQLfetchRealmLower()
     if (
@@ -62,7 +56,6 @@ def char_search(wowrealm, wowcharacter):
         except:
             return render_template(
                 "lookup.html",
-                char_data=char_profile,
                 class_c="captain-p",
                 realm_data=realmlist,
                 err_msg="Character not found!",
@@ -70,7 +63,6 @@ def char_search(wowrealm, wowcharacter):
     else:
         return render_template(
             "lookup.html",
-            char_data=char_profile,
             class_c="captain-p",
             realm_data=realmlist,
             err_msg="Invalid input!",

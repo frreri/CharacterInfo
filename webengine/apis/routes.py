@@ -12,7 +12,7 @@ def get_roster():
 
 
 @apis.route("/server/api/character", methods=["POST"])
-def get_character():
+def get_wow_character():
     if (
         not "region" in request.json
         or not "realm" in request.json
@@ -32,30 +32,10 @@ def get_character():
 
     try:
         api_profile = myAPI.get_character(api_region, api_realm, api_character)
-        api_response = {
-            "title": api_profile[0],
-            "class": api_profile[1],
-            "race": api_profile[2],
-            "gender": api_profile[3],
-            "level": api_profile[4],
-            "ilvl": api_profile[5],
-            "guild": api_profile[6],
-            "realm": api_profile[7],
-            "hk": api_profile[8],
-            "thumb": "https://render-eu.worldofwarcraft.com/character/"
-            + api_profile[9],
-            "image": api_profile[10],
-            "achievement": api_profile[11],
-            "mounts": api_profile[12],
-            "pets": api_profile[13],
-            "exalted": api_profile[14],
-            "quests": api_profile[15],
-            "name": api_profile[16],
-        }
         SQLfetcher.SQLinsert(api_profile, "API")
     except:
-        api_response = {"error": "Character not found"}
-    return jsonify(api_response), 200
+        api_profile = {"error": "Character not found"}
+    return jsonify(api_profile), 200
 
 
 @apis.route("/server/searches", methods=["GET"])

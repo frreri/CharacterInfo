@@ -15,7 +15,7 @@
 <form onSubmit="return search_char();">
     <select name="realm_c" id="realm_c" required>
         {% if char_data %}
-        <option value="{{char_data[7]|lower}}" selected>{{char_data[7]}}</option>
+        <option value="{{char_data.realm|lower}}" selected>{{char_data.realm}}</option>
         {% else %}
         <option value="" disabled selected>Select realm</option>
         {% endif %}
@@ -36,47 +36,47 @@
 </div>
 {% if char_data %}
 <div class="hideable-content" id="hideable-content">
-    <p class="{{ color_class[char_data[1]] }}-color name-box">{{ char_data[16] }}</p>
+    <p class="{{ color_class[char_data.class] }}-color name-box">{{ char_data.name }}</p>
     <div class="flex-container">
         <div class="lookup-box">
-            <img src="https://render-eu.worldofwarcraft.com/character/{{ char_data[9] }}" height="52" width="52"><br>
-            <span>{{ char_data[0] }}</span><br>
-            <span>{{ char_data[6] }} @ {{ char_data[7] }}</span><br>
-            <span>Lvl. {{ char_data[4] }} {{ char_data[1] }}</span><br>
-            <span id="c_race">{{ char_data[2] }}</span> <span id="c_gender">{{ char_data[3] }}</span><br>
-            <span>Item level {{ char_data[5] }}</span><br>
+            <img src="https://render-eu.worldofwarcraft.com/character/{{ char_data.thumb }}" height="52" width="52"><br>
+            <span>{{ char_data.name_with_title }}</span><br>
+            <span>{{ char_data.guild }} @ {{ char_data.realm }}</span><br>
+            <span>Lvl. {{ char_data.level }} {{ char_data.class }}</span><br>
+            <span id="c_race">{{ char_data.race }}</span> <span id="c_gender">{{ char_data.gender }}</span><br>
+            <span>Item level {{ char_data.ilvl }}</span><br>
         </div>
         <div class="flex-containter-nowrap">
             <div class="lookup-gear">
-                <a href="{{ char_data[17] }}" target="_blank"><span class="hidden">Head</span></a><br>
-                <a href="{{ char_data[18] }}" target="_blank"><span class="hidden">Neck</span></a><br>
-                <a href="{{ char_data[19] }}" target="_blank"><span class="hidden">Shoulder</span></a><br>
-                <a href="{{ char_data[20] }}" target="_blank"><span class="hidden">Back</span></a><br>
-                <a href="{{ char_data[21] }}" target="_blank"><span class="hidden">Chest</span></a><br>
-                <a href="{{ char_data[22] }}" target="_blank"><span class="hidden">Wrist</span></a><br>
-                {{ char_data[23]|safe }}
-                <a href="{{ char_data[24] }}" target="_blank"><span class="hidden">Offhand</span></a>
+                <a href="{{ char_data.head }}" target="_blank"><span class="hidden">Head</span></a><br>
+                <a href="{{ char_data.neck }}" target="_blank"><span class="hidden">Neck</span></a><br>
+                <a href="{{ char_data.shoulder }}" target="_blank"><span class="hidden">Shoulder</span></a><br>
+                <a href="{{ char_data.back }}" target="_blank"><span class="hidden">Back</span></a><br>
+                <a href="{{ char_data.chest }}" target="_blank"><span class="hidden">Chest</span></a><br>
+                <a href="{{ char_data.wrist }}" target="_blank"><span class="hidden">Wrist</span></a><br>
+                {{ char_data.mainhand|safe }}
+                <a href="{{ char_data.offhand }}" target="_blank"><span class="hidden">Offhand</span></a>
             </div>
-            <div class="lookup-picbox" id="picbox" style='background: url("{{ char_data[10] }}") #000 no-repeat center center;background-size: 800px 600px;background-position: 50% 62%;'>
+            <div class="lookup-picbox" id="picbox" style='background: url("{{ char_data.image }}") #000 no-repeat center center;background-size: 800px 600px;background-position: 50% 62%;'>
             </div>
             <div class="lookup-gear">
-                <a href="{{ char_data[25] }}" target="_blank"><span class="hidden">hands</span></a><br>
-                <a href="{{ char_data[26] }}" target="_blank"><span class="hidden">Waist</span></a><br>
-                <a href="{{ char_data[27] }}" target="_blank"><span class="hidden">Legs</span></a><br>
-                <a href="{{ char_data[28] }}" target="_blank"><span class="hidden">Feet</span></a><br>
-                <a href="{{ char_data[29] }}" target="_blank"><span class="hidden">Finger1</span></a><br>
-                <a href="{{ char_data[30] }}" target="_blank"><span class="hidden">Finger2</span></a><br>
-                <a href="{{ char_data[31] }}" target="_blank"><span class="hidden">Trinket1</span></a><br>
-                <a href="{{ char_data[32] }}" target="_blank"><span class="hidden">Trinket2</span></a>
+                <a href="{{ char_data.hands }}" target="_blank"><span class="hidden">hands</span></a><br>
+                <a href="{{ char_data.waist }}" target="_blank"><span class="hidden">Waist</span></a><br>
+                <a href="{{ char_data.legs }}" target="_blank"><span class="hidden">Legs</span></a><br>
+                <a href="{{ char_data.feet }}" target="_blank"><span class="hidden">Feet</span></a><br>
+                <a href="{{ char_data.finger1 }}" target="_blank"><span class="hidden">Finger1</span></a><br>
+                <a href="{{ char_data.finger2 }}" target="_blank"><span class="hidden">Finger2</span></a><br>
+                <a href="{{ char_data.trinket1 }}" target="_blank"><span class="hidden">Trinket1</span></a><br>
+                <a href="{{ char_data.trinket2 }}" target="_blank"><span class="hidden">Trinket2</span></a>
             </div>
         </div>
         <div class="lookup-box">
-            <span>Honorable kills: {{ char_data[8] }}</span><br>
-            <span>Achievement points: {{ char_data[11] }}</span><br>
-            <span>Usable mounts: {{ char_data[12] }}</span><br>
-            <span>Unique pets: {{ char_data[13] }}</span><br>
-            <span>Factions at exalted: {{ char_data[14] }}</span><br>
-            <span>Unique quests done: {{ char_data[15] }}</span><br>
+            <span>Honorable kills: {{ char_data.hks }}</span><br>
+            <span>Achievement points: {{ char_data.achievement }}</span><br>
+            <span>Usable mounts: {{ char_data.mounts }}</span><br>
+            <span>Unique pets: {{ char_data.pets }}</span><br>
+            <span>Factions at exalted: {{ char_data.exalted }}</span><br>
+            <span>Unique quests done: {{ char_data.quests }}</span><br>
         </div>
     </div>
 </div>
