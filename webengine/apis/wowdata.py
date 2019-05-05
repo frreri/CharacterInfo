@@ -43,6 +43,19 @@ classes = [
     "Demon Hunter",
 ]
 genders = ["Male", "Female"]
+professions = [
+    "Alchemy",
+    "Herbalism",
+    "Mining",
+    "Blacksmithing",
+    "Engineering",
+    "Skinning",
+    "Jewelcrafting",
+    "Enchanting",
+    "Leatherworking",
+    "Inscription",
+    "Tailoring",
+]
 
 
 def get_character(region, realm, character, gear=None):
@@ -52,7 +65,7 @@ def get_character(region, realm, character, gear=None):
         region,
         realm,
         character,
-        fields="items,guild,titles,mounts,pets,statistics,quests",
+        fields="items,guild,titles,mounts,pets,statistics,quests,professions",
     )
 
     def bonusadd(type, length):
@@ -65,6 +78,7 @@ def get_character(region, realm, character, gear=None):
 
     wow_c = {}
     pet_name = []
+    learned_professions = []
     pet_count = 0
     title_count = 0
     quest_count = 0
@@ -112,6 +126,17 @@ def get_character(region, realm, character, gear=None):
         quest_count += 1
     wow_c.update({"quests": quest_count})
     wow_c.update({"name": wowchar["name"]})
+    for item in wowchar["professions"]["primary"]:
+        if item["name"] in professions:
+            learned_professions.append(item["name"])
+    try:
+        wow_c.update({"profession1": learned_professions[0]})
+    except:
+        wow_c.update({"profession1": "Not learned"})
+    try:
+        wow_c.update({"profession2": learned_professions[1]})
+    except:
+        wow_c.update({"profession2": "Not learned"})
     if include_gear == "gear":
         wow_c.update(
             {
