@@ -80,17 +80,7 @@ def output():
         else:
             thumbnail.append(thumb + x[3])
         count += 1
-    try:
-        return render_template(
-            "toplist.html",
-            rank_list=g_char,
-            class_c=body_class[g_char[0][1]],
-            thumb=thumbnail,
-        )
-    except:
-        return render_template(
-            "toplist.html", rank_list=g_char, class_c="captain-p", thumb=thumbnail
-        )
+    return render_template("toplist.html", rank_list=g_char, thumb=thumbnail)
 
 
 @main.route("/roster", methods=["GET"])
