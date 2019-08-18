@@ -4,5 +4,12 @@
     <span class="big-headline">
         Placeholder
     </span>
+    <form>
+        <input type="text" name="number" id="name_c" placeholder="Mobilnummer" required> <BR>
+        <input type="submit" value="Search" class="lookup-butn">
+        {% if data %}
+        <p> {{ data }} </p>
+        {% endif %}
+    </form>
 </div>
 {% endblock content %}
