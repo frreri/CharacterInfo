@@ -4,12 +4,12 @@
     <span class="big-headline">
         Operatör
     </span>
-    <p>Sök fram vilken operatör ett svenskt mobilnummer tillhör</p>
+    <p>Sök fram vilken operatör ett svenskt mobilnummer tillhör.</p>
     <form method="post">
         <input type="text" name="number" id="name_c" placeholder="Mobilnummer" required> <BR>
         <input type="submit" value="Sök" class="lookup-butn">
         {% if data %}
-        <p> {{ data }} </p>
+        <p class="big-text"> {{ data }} </p>
         {% endif %}
     </form>
 </div>
