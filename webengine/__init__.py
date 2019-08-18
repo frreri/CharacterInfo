@@ -8,9 +8,10 @@ from config import AppConfig
 db = SQLAlchemy()
 bcrypt = Bcrypt()
 login_manager = LoginManager()
-login_manager.login_view = 'users.login'
-login_manager.login_message_category = 'info'
+login_manager.login_view = "users.login"
+login_manager.login_message_category = "info"
 mail = Mail()
+
 
 def create_app(config_class=AppConfig):
     app = Flask(__name__)
@@ -25,6 +26,8 @@ def create_app(config_class=AppConfig):
     from webengine.main.routes import main
     from webengine.news.routes import news
     from webengine.users.routes import users
+    from webengine.misc.routes import misc
+
     app.register_blueprint(apis)
     app.register_blueprint(main)
     app.register_blueprint(news)
