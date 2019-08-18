@@ -6,11 +6,11 @@
     </span>
     <p>Sök fram vilken operatör ett svenskt mobilnummer tillhör.</p>
     <form method="post">
-        <input type="text" name="number" id="name_c" placeholder="Mobilnummer" required> <BR>
+        <input type="text" name="number" placeholder="Mobilnummer" required> <BR>
         <input type="submit" value="Sök" class="lookup-butn">
-        {% if data %}
-        <p class="big-text"> {{ data }} </p>
-        {% endif %}
     </form>
+    {% if data %}
+        <p class="big-text"> {{ data }} </p>
+    {% endif %}
 </div>
 {% endblock content %}
