@@ -2,11 +2,12 @@
 {% block content %}
 <div class="flex-container-col">
     <span class="big-headline">
-        Placeholder
+        Operatör
     </span>
+    <p>Sök fram vilken operatör ett svenskt mobilnummer tillhör</p>
     <form method="post">
         <input type="text" name="number" id="name_c" placeholder="Mobilnummer" required> <BR>
-        <input type="submit" value="Search" class="lookup-butn">
+        <input type="submit" value="Sök" class="lookup-butn">
         {% if data %}
         <p> {{ data }} </p>
         {% endif %}
