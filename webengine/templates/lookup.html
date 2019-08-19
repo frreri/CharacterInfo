@@ -88,7 +88,32 @@
 {% else %}
 <div class="hideable-content" id="hideable-content">
     <div class="flex-container">
+        <p class="big-text">Countdown to classic release!</p>
+        <p id="countdown" class="big-headline"></p>
 
+        <script>
+        var countDownDate = new Date("Aug 27, 2019 00:00:01").getTime();
+
+        var x = setInterval(function() {
+
+        var now = new Date().getTime();
+
+        var distance = countDownDate - now;
+
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
+        + minutes + "m " + seconds + "s ";
+
+        if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("countdown").innerHTML = "Classic is released!";
+        }
+        }, 1000);
+        </script>
     </div>
 </div>
 {% endif %}
