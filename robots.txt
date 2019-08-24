@@ -1,0 +1,7 @@
+User-agent: *
+
+Disallow: /lookup*
+Disallow: /toplist
+Allow: /
+Allow: /roster
+Allow: /operator
