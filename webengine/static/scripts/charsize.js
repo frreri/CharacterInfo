@@ -1,12 +1,12 @@
-function char_size(){
+function char_size() {
 
     var size_L = ['Tauren', 'Orc'];
-    var size_M = ['Worgen', 'Draenei', 'Lightforged Draenei'];
+    var size_M = ['Worgen', 'Draenei', 'Lightforged Draenei', 'Night Elf'];
 
     if (size_L.includes(document.getElementById("c_race").textContent)) {
-        document.getElementById("picbox").style.backgroundSize ="620px 465px";
+        document.getElementById("picbox").style.backgroundSize = "620px 465px";
     } else if (size_M.includes(document.getElementById("c_race").textContent) && document.getElementById("c_gender").textContent == 'Male') {
-        document.getElementById("picbox").style.backgroundSize ="660px 495px";
+        document.getElementById("picbox").style.backgroundSize = "660px 495px";
     }
 
 }
