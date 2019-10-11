@@ -2,7 +2,7 @@
 {% block head %}
 <script src="{{ url_for('static', filename='scripts/lookup.js') }}"></script>
 {% if char_data %}
-<script>var whTooltips = {colorLinks: true, iconizeLinks: true, renameLinks: false, iconSize:'medium', "hide": { "droppedby": true, "dropchance": true, "sellprice": true, "reagents": true } };</script>
+<script>var whTooltips = { colorLinks: true, iconizeLinks: true, renameLinks: false, iconSize: 'medium', "hide": { "droppedby": true, "dropchance": true, "sellprice": true, "reagents": true } };</script>
 <script src="https://wow.zamimg.com/widgets/power.js"></script>
 <script src="{{ url_for('static', filename='scripts/charsize.js') }}"></script>
 {% endif %}
@@ -31,7 +31,18 @@
 {% endif %}
 <div class="flex-container" id="load-anim" style="display:none">
     <div class="load-anim">
-        <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
     </div>
 </div>
 {% if char_data %}
@@ -59,10 +70,12 @@
                 <a href="{{ char_data.back }}" target="_blank"><span class="hidden">Back</span></a><br>
                 <a href="{{ char_data.chest }}" target="_blank"><span class="hidden">Chest</span></a><br>
                 <a href="{{ char_data.wrist }}" target="_blank"><span class="hidden">Wrist</span></a><br>
-                {% if char_data.offHand == "Placeholder" %}<br><br>{% endif %}<a href="{{ char_data.mainHand }}" target="_blank"><span class="hidden">Mainhand</span></a><br>
+                {% if char_data.offHand == "Placeholder" %}<br><br>{% endif %}<a href="{{ char_data.mainHand }}"
+                    target="_blank"><span class="hidden">Mainhand</span></a><br>
                 <a href="{{ char_data.offHand }}" target="_blank"><span class="hidden">Offhand</span></a>
             </div>
-            <div class="lookup-picbox" id="picbox" style='background: url("{{ char_data.image }}") #000 no-repeat center center;background-size: 800px 600px;background-position: 50% 62%;'>
+            <div class="lookup-picbox" id="picbox"
+                style='background: url("{{ char_data.image }}") #000 no-repeat center center;background-size: 800px 600px;background-position: 50% 62%;'>
             </div>
             <div class="lookup-gear">
                 <a href="{{ char_data.hands }}" target="_blank"><span class="hidden">hands</span></a><br>
@@ -87,38 +100,12 @@
 </div>
 {% else %}
 <div class="hideable-content" id="hideable-content">
-    <div class="flex-container-col">
-        <span class="big-text" style="margin-top:40px;">Countdown to classic release!</span>
-        <span id="countdown" class="big-headline"></span>
 
-        <script>
-        var countDownDate = new Date("Aug 27, 2019 00:00:01").getTime();
-
-        var x = setInterval(function() {
-
-        var now = new Date().getTime();
-
-        var distance = countDownDate - now;
-
-        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-        document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
-        + minutes + "m " + seconds + "s ";
-
-        if (distance < 0) {
-            clearInterval(x);
-            document.getElementById("countdown").innerHTML = "Classic is released!";
-        }
-        }, 1000);
-        </script>
-    </div>
 </div>
 {% endif %}
 {% endblock content %}
 {% block footer %}
-    <footer class="main-foot">This site uses data and images from Blizzard's World of Warcraft Community APIs. The site is in no way affiliated with or endorsed by Blizzard Entertainment, Inc.<br>
+<footer class="main-foot">This site uses data and images from Blizzard's World of Warcraft Community APIs. The site is
+    in no way affiliated with or endorsed by Blizzard Entertainment, Inc.<br>
     World of Warcraft is a registered trademark of Blizzard Entertainment, Inc.</footer>
 {% endblock footer %}
