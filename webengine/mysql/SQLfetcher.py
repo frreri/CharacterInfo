@@ -95,7 +95,7 @@ def SQLtokenInsert(token_info):
             key,
         )
         cursor.execute(sql, val)
-    cnx.commit()
+        cnx.commit()
     cnx.close()
 
 
