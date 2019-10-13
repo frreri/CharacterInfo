@@ -81,6 +81,24 @@ def SQLinsert(search_result, source):
     cnx.commit()
     cnx.close()
 
+def SQLtokenInsert(token_info):
+    cnx = mysql.connector.connect(**sql_config)
+    cursor = cnx.cursor()
+    token_dict = token_info
+
+    for key in token_dict:
+        sql = """INSERT INTO goldhistory (Date, GoldHigh, Region)
+        VALUES(%s, %s, %s) ON DUPLICATE KEY UPDATE Date = VALUES(Date), GoldHigh = VALUES(GoldHigh), Region = VALUES(Region);"""
+        val = (
+            datetime.datetime.now(),
+            token_dict[key]['gold'],
+            key,
+        )
+        cursor.execute(sql, val)
+    cnx.commit()
+    cnx.close()
+
+
 
 def SQLfetchSearch():
     cnx = mysql.connector.connect(**sql_config)
