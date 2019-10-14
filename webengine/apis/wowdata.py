@@ -177,14 +177,14 @@ def get_character(region, realm, character, gear=None):
     return wow_c
 
 
-def get_token_gold():
-    regions = {"eu": "dynamic-eu", "us": "dynamic-us", "kr": "dynamic-kr"}
-    tokeninfo_dict = {}
-    for key, val in regions.items():
-        tokeninfo = api.get_token(key, val)
-        gold_amount = "{:,}".format(int(tokeninfo["price"] / 10000))
-        last_updated = datetime.fromtimestamp(
-            tokeninfo["last_updated_timestamp"] / 1e3
-        ).strftime("%Y-%m-%d, %H:%M")
-        tokeninfo_dict.update({key: {"gold": gold_amount, "updated": last_updated}})
-    return tokeninfo_dict
+# def get_token_gold():
+#     regions = {"eu": "dynamic-eu", "us": "dynamic-us", "kr": "dynamic-kr"}
+#     tokeninfo_dict = {}
+#     for key, val in regions.items():
+#         tokeninfo = api.get_token(key, val)
+#         gold_amount = "{:,}".format(int(tokeninfo["price"] / 10000))
+#         last_updated = datetime.fromtimestamp(
+#             tokeninfo["last_updated_timestamp"] / 1e3
+#         ).strftime("%Y-%m-%d, %H:%M")
+#         tokeninfo_dict.update({key: {"gold": gold_amount, "updated": last_updated}})
+#     return tokeninfo_dict

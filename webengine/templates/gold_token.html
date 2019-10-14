@@ -2,23 +2,24 @@
 {% block content %}
 <div class="flex-container-col">
     <div class="token-headline">
-    WoW Token Prices
+        WoW Token Prices
     </div>
     <div class="token-main-text">
-    <span class="region-color">EU</span> {{ data.eu.gold }}<span class="gold-color">g</span>
+        <span class="region-color">EU</span> {{ data[0][1] }}<span class="gold-color">g</span>
     </div>
     <p class="footnote">Last updated: {{data.eu.updated}}</p>
     <div class="token-main-text">
-    <span class="region-color">US</span> {{ data.us.gold }}<span class="gold-color">g</span>
+        <span class="region-color">US</span> {{ data[2][1] }}<span class="gold-color">g</span>
     </div>
     <p class="footnote">Last updated: {{data.us.updated}}</p>
     <div class="token-main-text">
-    <span class="region-color">KR</span> {{ data.kr.gold }}<span class="gold-color">g</span>
+        <span class="region-color">KR</span> {{ data[1][1] }}<span class="gold-color">g</span>
     </div>
     <p class="footnote">Last updated: {{data.kr.updated}}</p>
 </div>
 {% endblock content%}
 {% block footer %}
-    <footer class="main-foot">This site uses data and images from Blizzard's World of Warcraft Community APIs. The site is in no way affiliated with or endorsed by Blizzard Entertainment, Inc.<br>
+<footer class="main-foot">This site uses data and images from Blizzard's World of Warcraft Community APIs. The site is
+    in no way affiliated with or endorsed by Blizzard Entertainment, Inc.<br>
     World of Warcraft is a registered trademark of Blizzard Entertainment, Inc.</footer>
 {% endblock footer %}
