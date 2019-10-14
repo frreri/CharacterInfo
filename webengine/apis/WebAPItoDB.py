@@ -144,7 +144,7 @@ def api_to_db():
         )
 
 def token_to_db():
-    import datetime
+    from datetime import datetime
     import mysql.connector
     from wowapi import WowApi
     from config import APIconfig, MySQLconfig
