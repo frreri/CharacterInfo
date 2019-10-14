@@ -166,6 +166,7 @@ def token_to_db():
         passwd=MySQLconfig.MYSQL_PASSWORD,
         database=MySQLconfig.MYSQL_DATABASE,
     )
+    cursor = cnx.cursor()
     for key in tokeninfo_dict:
         sql = """INSERT INTO currentgold (Region, Gold)
         VALUES(%s, %s) ON DUPLICATE KEY UPDATE Region = VALUES(Region), Gold = VALUES(Gold);"""
