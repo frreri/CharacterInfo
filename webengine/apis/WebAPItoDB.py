@@ -171,7 +171,7 @@ def token_to_db():
         VALUES(%s, %s) ON DUPLICATE KEY UPDATE Region = VALUES(Region), Gold = VALUES(Gold);"""
         val = (
             key,
-            token_dict[key]['gold'],
+            tokeninfo_dict[key]['gold'],
         )
         cursor.execute(sql, val)
         cnx.commit()
