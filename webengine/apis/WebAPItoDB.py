@@ -153,7 +153,7 @@ def token_to_db():
     regions = {"eu": "dynamic-eu", "us": "dynamic-us", "kr": "dynamic-kr"}
     tokeninfo_dict = {}
     for key, val in regions.items():
-        tokeninfo = api.get_token(key, val)
+        tokeninfo = api.get_token_index(key, val)
         gold_amount = "{:,}".format(int(tokeninfo["price"] / 10000))
         last_updated = datetime.fromtimestamp(
             tokeninfo["last_updated_timestamp"] / 1e3
