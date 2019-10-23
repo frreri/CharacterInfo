@@ -29,6 +29,12 @@ class MySQLconfig:
 Before running the application, create the required database tables by running create_tables.py
 
 Right now the application does not contain database table creation for some of its features.
-I will change all database communication to SQLAlchemy in the near future which will fix that.
+I will change all database communication to SQLAlchemy in the future which will fix that.
 
-User accounts and logged in features are in the works.
+User accounts and logged in features are on hold for now.
+
+Current work in progress is the frer.se/token page
+
+SQL for table creation for parts of the site using mysql.connector:
+create table goldhistory(date DATE, GoldHigh VARCHAR(12), Region VARCHAR(2), gold_int INT(8), PRIMARY KEY (date));
+More to be added...
