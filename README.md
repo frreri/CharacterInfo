@@ -36,5 +36,5 @@ User accounts and logged in features are on hold for now.
 Current work in progress is the frer.se/token page
 
 SQL for table creation for parts of the site using mysql.connector:
-create table goldhistory(date DATE, GoldHigh VARCHAR(12), Region VARCHAR(2), gold_int INT(8), PRIMARY KEY (date));
+create table goldhistory(date DATE, GoldHigh VARCHAR(12), Region VARCHAR(2), gold_int INT(8), CONSTRAINT regiondate PRIMARY KEY (date,region));
 More to be added...
