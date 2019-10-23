@@ -143,6 +143,7 @@ def api_to_db():
             "Something went wrong during update from API to database, API or database could be down..."
         )
 
+
 def token_to_db():
     from datetime import datetime
     import mysql.connector
@@ -170,10 +171,7 @@ def token_to_db():
     for key in tokeninfo_dict:
         sql = """INSERT INTO currentgold (Region, Gold)
         VALUES(%s, %s) ON DUPLICATE KEY UPDATE Region = VALUES(Region), Gold = VALUES(Gold);"""
-        val = (
-            key,
-            tokeninfo_dict[key]['gold'],
-        )
+        val = (key, tokeninfo_dict[key]["gold"])
         cursor.execute(sql, val)
         cnx.commit()
     cnx.close()
