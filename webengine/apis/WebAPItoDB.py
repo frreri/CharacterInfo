@@ -187,7 +187,7 @@ def token_to_db():
         sql = "select * from goldhistory where region = %s order by date desc;"
         val = (region,)
         cursor.execute(sql, val)
-        result = cursor.fetchone()
+        result = cursor.fetchall()
         rowcount = cursor.rowcount
         cnx.close()
         if rowcount == 0:
