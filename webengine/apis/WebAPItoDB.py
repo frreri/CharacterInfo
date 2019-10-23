@@ -204,21 +204,25 @@ def token_to_db():
             cursor.execute(sql, val)
             cnx.commit()
             cnx.close()
-        elif this_day > str(result[0][0]) or tokeninfo_dict[region]["gold_int"] > int(
-            result[0][3]
-        ):
-            cnx = mysql.connector.connect(**sql_config)
-            cursor = cnx.cursor()
-            sql = """INSERT INTO goldhistory (Date, GoldHigh, Region, gold_int)
-            VALUES(%s, %s, %s) ON DUPLICATE KEY UPDATE Date = VALUES(Date), GoldHigh = VALUES(GoldHigh), Region = VALUES(Region), gold_int = VALUES(gold_int);"""
-            val = (
-                this_day,
-                tokeninfo_dict[region]["gold"],
-                region,
-                tokeninfo_dict[region]["gold_int"],
-            )
-            cursor.execute(sql, val)
-            cnx.commit()
-            cnx.close()
         else:
-            pass
+            result_date = result[0][0]
+            result_gold_int = result[0][3]
+            if (
+                this_day > result_date
+                or tokeninfo_dict[region]["gold_int"] > result_gold_int
+            ):
+                cnx = mysql.connector.connect(**sql_config)
+                cursor = cnx.cursor()
+                sql = """INSERT INTO goldhistory (Date, GoldHigh, Region, gold_int)
+                VALUES(%s, %s, %s) ON DUPLICATE KEY UPDATE Date = VALUES(Date), GoldHigh = VALUES(GoldHigh), Region = VALUES(Region), gold_int = VALUES(gold_int);"""
+                val = (
+                    this_day,
+                    tokeninfo_dict[region]["gold"],
+                    region,
+                    tokeninfo_dict[region]["gold_int"],
+                )
+                cursor.execute(sql, val)
+                cnx.commit()
+                cnx.close()
+            else:
+                pass
