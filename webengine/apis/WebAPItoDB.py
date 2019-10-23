@@ -204,8 +204,8 @@ def token_to_db():
             cursor.execute(sql, val)
             cnx.commit()
             cnx.close()
-        elif (
-            this_day > result[0][0] or tokeninfo_dict[region]["gold_int"] > result[0][3]
+        elif this_day > str(result[0][0]) or tokeninfo_dict[region]["gold_int"] > int(
+            result[0][3]
         ):
             cnx = mysql.connector.connect(**sql_config)
             cursor = cnx.cursor()
