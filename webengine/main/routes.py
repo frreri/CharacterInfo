@@ -86,5 +86,7 @@ def roster_list():
 @main.route("/token", methods=["GET"])
 def get_token_info():
     token_info = SQLfetcher.SQLtokenFetchCurrent()
-    # SQLfetcher.SQLtokenInsert(token_info)
-    return render_template("gold_token.html", data=token_info, title="Token")
+    token_history = SQLfetcher.SQLtokenFetchHistory()
+    return render_template(
+        "gold_token.html", data=token_info, data1=token_history, title="Token"
+    )

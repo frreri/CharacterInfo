@@ -81,6 +81,7 @@ def SQLinsert(search_result, source):
     cnx.commit()
     cnx.close()
 
+
 # def SQLtokenInsert(token_info):
 #     cnx = mysql.connector.connect(**sql_config)
 #     cursor = cnx.cursor()
@@ -98,6 +99,7 @@ def SQLinsert(search_result, source):
 #         cnx.commit()
 #     cnx.close()
 
+
 def SQLtokenFetchCurrent():
     cnx = mysql.connector.connect(**sql_config)
     cursor = cnx.cursor()
@@ -106,6 +108,17 @@ def SQLtokenFetchCurrent():
     results = cursor.fetchall()
     cnx.close()
     return results
+
+
+def SQLtokenFetchHistory():
+    cnx = mysql.connector.connect(**sql_config)
+    cursor = cnx.cursor()
+    sql = "select * from goldhistory order by date desc, region asc;"
+    cursor.execute(sql)
+    results = cursor.fetchall()
+    cnx.close()
+    return results
+
 
 def SQLfetchSearch():
     cnx = mysql.connector.connect(**sql_config)
