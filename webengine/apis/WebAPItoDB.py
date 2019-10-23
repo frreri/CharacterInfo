@@ -205,7 +205,7 @@ def token_to_db():
             cnx.commit()
             cnx.close()
         else:
-            result_date = result[0][0]
+            result_date = str(result[0][0])
             result_gold_int = result[0][3]
             if (
                 this_day > result_date
