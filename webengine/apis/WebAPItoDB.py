@@ -194,7 +194,7 @@ def token_to_db():
             cnx = mysql.connector.connect(**sql_config)
             cursor = cnx.cursor()
             sql = """INSERT INTO goldhistory (Date, GoldHigh, Region, gold_int)
-            VALUES(%s, %s, %s) ON DUPLICATE KEY UPDATE Date = VALUES(Date), GoldHigh = VALUES(GoldHigh), Region = VALUES(Region), gold_int = VALUES(gold_int);"""
+            VALUES(%s, %s, %s, %s) ON DUPLICATE KEY UPDATE Date = VALUES(Date), GoldHigh = VALUES(GoldHigh), Region = VALUES(Region), gold_int = VALUES(gold_int);"""
             val = (
                 this_day,
                 tokeninfo_dict[region]["gold"],
@@ -214,7 +214,7 @@ def token_to_db():
                 cnx = mysql.connector.connect(**sql_config)
                 cursor = cnx.cursor()
                 sql = """INSERT INTO goldhistory (Date, GoldHigh, Region, gold_int)
-                VALUES(%s, %s, %s) ON DUPLICATE KEY UPDATE Date = VALUES(Date), GoldHigh = VALUES(GoldHigh), Region = VALUES(Region), gold_int = VALUES(gold_int);"""
+                VALUES(%s, %s, %s, %s) ON DUPLICATE KEY UPDATE Date = VALUES(Date), GoldHigh = VALUES(GoldHigh), Region = VALUES(Region), gold_int = VALUES(gold_int);"""
                 val = (
                     this_day,
                     tokeninfo_dict[region]["gold"],
