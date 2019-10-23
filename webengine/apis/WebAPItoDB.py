@@ -145,28 +145,33 @@ def api_to_db():
 
 
 def token_to_db():
-    from datetime import datetime
+    from datetime import datetime, date
     import mysql.connector
     from wowapi import WowApi
     from config import APIconfig, MySQLconfig
 
+    sql_config = {
+        "user": MySQLconfig.MYSQL_USER,
+        "password": MySQLconfig.MYSQL_PASSWORD,
+        "host": MySQLconfig.MYSQL_HOST,
+        "database": MySQLconfig.MYSQL_DATABASE,
+    }
+    this_day = str(date.today())
     api = WowApi(APIconfig.CLIENT_ID, APIconfig.CLIENT_SECRET)
     regions = {"eu": "dynamic-eu", "us": "dynamic-us", "kr": "dynamic-kr"}
     tokeninfo_dict = {}
     for key, val in regions.items():
         tokeninfo = api.get_token_index(key, val)
         gold_amount = "{:,}".format(int(tokeninfo["price"] / 10000))
+        gold_int = int(tokeninfo["price"] / 10000)
         last_updated = datetime.fromtimestamp(
             tokeninfo["last_updated_timestamp"] / 1e3
         ).strftime("%Y-%m-%d, %H:%M")
-        tokeninfo_dict.update({key: {"gold": gold_amount, "updated": last_updated}})
+        tokeninfo_dict.update(
+            {key: {"gold": gold_amount, "updated": last_updated, "gold_int": gold_int}}
+        )
 
-    cnx = mysql.connector.connect(
-        host=MySQLconfig.MYSQL_HOST,
-        user=MySQLconfig.MYSQL_USER,
-        passwd=MySQLconfig.MYSQL_PASSWORD,
-        database=MySQLconfig.MYSQL_DATABASE,
-    )
+    cnx = mysql.connector.connect(**sql_config)
     cursor = cnx.cursor()
     for key in tokeninfo_dict:
         sql = """INSERT INTO currentgold (Region, Gold)
@@ -175,13 +180,45 @@ def token_to_db():
         cursor.execute(sql, val)
         cnx.commit()
     cnx.close()
-    # cnx = mysql.connector.connect(
-    #     host=MySQLconfig.MYSQL_HOST,
-    #     user=MySQLconfig.MYSQL_USER,
-    #     passwd=MySQLconfig.MYSQL_PASSWORD,
-    #     database=MySQLconfig.MYSQL_DATABASE,
-    # )
-    # cursor = cnx.cursor()
-    # cursor.execute(sql, val)
-    # cnx.commit()
-    # cnx.close()
+
+    for region in ["eu", "us", "kr"]:
+        cnx = mysql.connector.connect(**sql_config)
+        cursor = cnx.cursor()
+        sql = "select * from goldhistory where region = %s order by date desc;"
+        val = (region,)
+        cursor.execute(sql, val)
+        result = cursor.fetchone()
+        rowcount = cursor.rowcount
+        cnx.close()
+        if rowcount == 0:
+            cnx = mysql.connector.connect(**sql_config)
+            cursor = cnx.cursor()
+            sql = """INSERT INTO goldhistory (Date, GoldHigh, Region, gold_int)
+            VALUES(%s, %s, %s) ON DUPLICATE KEY UPDATE Date = VALUES(Date), GoldHigh = VALUES(GoldHigh), Region = VALUES(Region), gold_int = VALUES(gold_int);"""
+            val = (
+                this_day,
+                tokeninfo_dict[region]["gold"],
+                region,
+                tokeninfo_dict[region]["gold_int"],
+            )
+            cursor.execute(sql, val)
+            cnx.commit()
+            cnx.close()
+        elif (
+            this_day > result[0][0] or tokeninfo_dict[region]["gold_int"] > result[0][3]
+        ):
+            cnx = mysql.connector.connect(**sql_config)
+            cursor = cnx.cursor()
+            sql = """INSERT INTO goldhistory (Date, GoldHigh, Region, gold_int)
+            VALUES(%s, %s, %s) ON DUPLICATE KEY UPDATE Date = VALUES(Date), GoldHigh = VALUES(GoldHigh), Region = VALUES(Region), gold_int = VALUES(gold_int);"""
+            val = (
+                this_day,
+                tokeninfo_dict[region]["gold"],
+                region,
+                tokeninfo_dict[region]["gold_int"],
+            )
+            cursor.execute(sql, val)
+            cnx.commit()
+            cnx.close()
+        else:
+            pass
