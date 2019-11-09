@@ -190,16 +190,18 @@ def token_to_db():
         result = cursor.fetchall()
         rowcount = cursor.rowcount
         cnx.close()
+        current_time = str(datetime.now().time())[:5]
         if rowcount == 0:
             cnx = mysql.connector.connect(**sql_config)
             cursor = cnx.cursor()
-            sql = """INSERT INTO goldhistory (Date, GoldHigh, Region, gold_int)
-            VALUES(%s, %s, %s, %s) ON DUPLICATE KEY UPDATE Date = VALUES(Date), GoldHigh = VALUES(GoldHigh), Region = VALUES(Region), gold_int = VALUES(gold_int);"""
+            sql = """INSERT INTO goldhistory (Date, GoldHigh, Region, gold_int, time)
+            VALUES(%s, %s, %s, %s, %s) ON DUPLICATE KEY UPDATE Date = VALUES(Date), GoldHigh = VALUES(GoldHigh), Region = VALUES(Region), gold_int = VALUES(gold_int), time = VALUES(time);"""
             val = (
                 this_day,
                 tokeninfo_dict[region]["gold"],
                 region,
                 tokeninfo_dict[region]["gold_int"],
+                current_time,
             )
             cursor.execute(sql, val)
             cnx.commit()
@@ -213,13 +215,14 @@ def token_to_db():
             ):
                 cnx = mysql.connector.connect(**sql_config)
                 cursor = cnx.cursor()
-                sql = """INSERT INTO goldhistory (Date, GoldHigh, Region, gold_int)
-                VALUES(%s, %s, %s, %s) ON DUPLICATE KEY UPDATE Date = VALUES(Date), GoldHigh = VALUES(GoldHigh), Region = VALUES(Region), gold_int = VALUES(gold_int);"""
+                sql = """INSERT INTO goldhistory (Date, GoldHigh, Region, gold_int, time)
+                VALUES(%s, %s, %s, %s, %s) ON DUPLICATE KEY UPDATE Date = VALUES(Date), GoldHigh = VALUES(GoldHigh), Region = VALUES(Region), gold_int = VALUES(gold_int), time = VALUES(time);"""
                 val = (
                     this_day,
                     tokeninfo_dict[region]["gold"],
                     region,
                     tokeninfo_dict[region]["gold_int"],
+                    current_time,
                 )
                 cursor.execute(sql, val)
                 cnx.commit()
