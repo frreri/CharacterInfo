@@ -146,6 +146,7 @@ def api_to_db():
 
 def token_to_db():
     from datetime import datetime, date
+    import time
     import mysql.connector
     from wowapi import WowApi
     from config import APIconfig, MySQLconfig
@@ -190,7 +191,10 @@ def token_to_db():
         result = cursor.fetchall()
         rowcount = cursor.rowcount
         cnx.close()
-        current_time = str(datetime.now().time())[:5]
+        if time.localtime().tm_isdst == 0:
+            current_time = str(datetime.now().time())[:5] + " CET"
+        else:
+            current_time = str(datetime.now().time())[:5] + " CEST"
         if rowcount == 0:
             cnx = mysql.connector.connect(**sql_config)
             cursor = cnx.cursor()
