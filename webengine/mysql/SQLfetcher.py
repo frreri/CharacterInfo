@@ -108,7 +108,7 @@ def SQLtokenFetchMonthHigh():
         cnx = mysql.connector.connect(**sql_config)
         cursor = cnx.cursor()
         the_month = str(datetime.date.today())[:8] + "00"
-        sql = "select * from goldhistory where date > {} and region = {} order by gold_int desc;".format(
+        sql = "select * from goldhistory where date > '{}' and region = '{}' order by gold_int desc;".format(
             the_month, region
         )
         cursor.execute(sql)
