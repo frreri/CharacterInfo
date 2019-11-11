@@ -307,7 +307,7 @@ background-color: rgb(20, 20, 20);
 }
 
 .active {
-    background-color: rgb(30,30,30);
+    background-color: rgb(20,20,20);
 }
 
 @media all and (max-width: 600px){
