@@ -25,20 +25,20 @@
         {% endif %}
         <ul>
             {% if selection == "lookup" %}
-            <li><a class="active" href="/">Character</a></li>
-            {% else %}
-            <li><a href="/">Character</a></li>
-            {% endif %}
-            {% if selection == "token" %}
-            <li><a class="active" href="/token">Token</a></li>
-            {% else %}
-            <li><a href="/token">Token</a></li>
-            {% endif %}
-            {% if selection == "roster" %}
-            <li><a class="active" href="/roster">Roster</a></li>
-            {% else %}
-            <li><a href="/roster">Roster</a></li>
-            {% endif %}
+            <li><a class="active" href="/">Character</a>
+                {% else %}
+            <li><a href="/">Character</a>
+                {% endif %}
+                {% if selection == "token" %}
+            <li><a class="active" href="/token">Token</a>
+                {% else %}
+            <li><a href="/token">Token</a>
+                {% endif %}
+                {% if selection == "roster" %}
+            <li><a class="active" href="/roster">Roster</a>
+                {% else %}
+            <li><a href="/roster">Roster</a>
+                {% endif %}
         </ul>
         <div class="main-container">
             <div class="main-wrapper">
