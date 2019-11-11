@@ -1,5 +1,6 @@
 <!DOCTYPE HTML>
 <html lang="en">
+
 <head>
     {% if title %}
     <title>Frer.se - {{ title }}</title>
@@ -10,23 +11,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/lookup.css') }}">
-    <link href="{{ url_for('static', filename='images/frerfavicon.png') }}" rel="icon" type="image/x-icon"/>
+    <link href="{{ url_for('static', filename='images/frerfavicon.png') }}" rel="icon" type="image/x-icon" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     {% block head %}
     {% endblock head %}
 </head>
 {% if char_data %}
+
 <body class="captain-p" onload="char_size()">
-{% else %}
-<body class="captain-p">
-{% endif %}
-    <div class="main-container">
-        <div class="main-wrapper">
-        {% block content %}
-        {% endblock content %}
+    {% else %}
+
+    <body class="captain-p">
+        {% endif %}
+        <ul>
+            <li><a href="/">Character</a></li>
+            <li><a href="/token">Token</a></li>
+            <li><a href="/roster">Roster</a></li>
+        </ul>
+        <div class="main-container">
+            <div class="main-wrapper">
+                {% block content %}
+                {% endblock content %}
+            </div>
+            {% block footer %}
+            {% endblock footer %}
         </div>
-        {% block footer %}
-        {% endblock footer %}
-    </div>
-</body>
+    </body>
+
 </html>
