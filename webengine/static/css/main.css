@@ -306,6 +306,10 @@ li a:hover {
 background-color: rgb(20, 20, 20);
 }
 
+.active {
+    background-color: rgb(30,30,30);
+}
+
 @media all and (max-width: 600px){
     ul {
         text-align: center;

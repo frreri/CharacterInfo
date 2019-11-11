@@ -27,7 +27,7 @@ no_thumb = "/static/images/frericon.png"
 @main.route("/lookup", methods=["GET"])
 def char_lookup():
     realmlist = SQLfetcher.SQLfetchRealm()
-    return render_template("lookup.html", realm_data=realmlist)
+    return render_template("lookup.html", realm_data=realmlist, selection="lookup")
 
 
 @main.route("/lookup/<wowrealm>/<wowcharacter>", methods=["GET"])
@@ -48,14 +48,21 @@ def char_search(wowrealm, wowcharacter):
                 char_data=char_profile,
                 realm_data=realmlist,
                 color_class=css_wow_class,
+                selection="lookup",
             )
         except:
             return render_template(
-                "lookup.html", realm_data=realmlist, err_msg="Character not found!"
+                "lookup.html",
+                realm_data=realmlist,
+                err_msg="Character not found!",
+                selection="lookup",
             )
     else:
         return render_template(
-            "lookup.html", realm_data=realmlist, err_msg="Invalid input!"
+            "lookup.html",
+            realm_data=realmlist,
+            err_msg="Invalid input!",
+            selection="lookup",
         )
 
 
@@ -79,7 +86,11 @@ def output():
 def roster_list():
     g_roster = SQLfetcher.SQLfetchAll()
     return render_template(
-        "roster.html", data=g_roster, color_class=css_wow_class, title="Roster"
+        "roster.html",
+        data=g_roster,
+        color_class=css_wow_class,
+        title="Roster",
+        selection="roster",
     )
 
 
@@ -94,4 +105,5 @@ def get_token_info():
         data1=token_history,
         data2=token_month_high,
         title="Token",
+        selection="token",
     )

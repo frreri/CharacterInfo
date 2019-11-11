@@ -24,9 +24,21 @@
     <body class="captain-p">
         {% endif %}
         <ul>
+            {% if selection == "lookup" %}
+            <li><a class="active" href="/">Character</a></li>
+            {% else %}
             <li><a href="/">Character</a></li>
+            {% endif %}
+            {% if selection == "token" %}
+            <li><a class="active" href="/token">Token</a></li>
+            {% else %}
             <li><a href="/token">Token</a></li>
+            {% endif %}
+            {% if selection == "roster" %}
+            <li><a class="active" href="/roster">Roster</a></li>
+            {% else %}
             <li><a href="/roster">Roster</a></li>
+            {% endif %}
         </ul>
         <div class="main-container">
             <div class="main-wrapper">
