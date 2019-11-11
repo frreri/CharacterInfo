@@ -5,3 +5,4 @@ Disallow: /toplist
 Allow: /
 Allow: /roster
 Allow: /operator
+Allow: /token
