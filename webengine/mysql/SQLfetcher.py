@@ -102,6 +102,24 @@ def SQLtokenFetchHistory():
     return results
 
 
+def SQLtokenFetchMonthHigh():
+    results = {}
+    for region in ["eu", "kr", "us"]:
+        cnx = mysql.connector.connect(**sql_config)
+        cursor = cnx.cursor()
+        the_month = str(datetime.date.today())[:8] + "00"
+        sql = "select * from goldhistory where date > {} and region = {} order by gold_int desc;".format(
+            the_month, region
+        )
+        cursor.execute(sql)
+        sql_result = cursor.fetchall()
+        results.update(
+            {sql_result[0]: {"gold": sql_result[0][1], "date": sql_result[0][0]}}
+        )
+        cnx.close()
+    return results
+
+
 def SQLfetchSearch():
     cnx = mysql.connector.connect(**sql_config)
     cursor = cnx.cursor()

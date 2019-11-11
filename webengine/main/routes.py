@@ -87,6 +87,11 @@ def roster_list():
 def get_token_info():
     token_info = SQLfetcher.SQLtokenFetchCurrent()
     token_history = SQLfetcher.SQLtokenFetchHistory()
+    token_month_high = SQLfetcher.SQLtokenFetchMonthHigh()
     return render_template(
-        "gold_token.html", data=token_info, data1=token_history, title="Token"
+        "gold_token.html",
+        data=token_info,
+        data1=token_history,
+        data2=token_month_high,
+        title="Token",
     )
