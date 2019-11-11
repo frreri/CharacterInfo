@@ -304,3 +304,9 @@ text-decoration: none;
 li a:hover {
 background-color: rgb(20, 20, 20);
 }
+
+@media all and (max-width: 600px){
+    ul {
+        text-align: center;
+    }
+}
