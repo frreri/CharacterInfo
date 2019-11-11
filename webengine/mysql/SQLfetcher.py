@@ -113,9 +113,7 @@ def SQLtokenFetchMonthHigh():
         )
         cursor.execute(sql)
         sql_result = cursor.fetchall()
-        results.update(
-            {sql_result[0]: {"gold": sql_result[0][1], "date": sql_result[0][0]}}
-        )
+        results.update({region: {"gold": sql_result[0][1], "date": sql_result[0][0]}})
         cnx.close()
     return results
 
