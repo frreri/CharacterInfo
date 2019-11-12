@@ -6,21 +6,22 @@
 <span class="big-headline">
     Fury
 </span>
-<p>Current roster</p>
+<p>Members of Fury on EU-Aggramar, updated hourly</p>
 <div class="roster-grp">
     {% for row in data %}
-        <div class="roster-box">
-            <div>
-                <span class="{{ color_class[row[1]] }}-color roster-name-tag">{{ row[0] }}</span>  <span></span> <br>
-                <span class="small-text">{{ row[2]}} {{ row[1]}}</span> <br>
-                lvl.{{ row[4]}} <br>
-                Item level {{ row[5]}}
-            </div>
+    <div class="roster-box">
+        <div>
+            <span class="{{ color_class[row[1]] }}-color roster-name-tag">{{ row[0] }}</span> <span></span> <br>
+            <span class="small-text">{{ row[2]}} {{ row[1]}}</span> <br>
+            lvl.{{ row[4]}} <br>
+            Item level {{ row[5]}}
         </div>
+    </div>
     {% endfor %}
 </div>
 {% endblock content %}
 {% block footer %}
-    <footer class="main-foot">This site uses data and images from Blizzard's World of Warcraft Community APIs. The site is in no way affiliated with or endorsed by Blizzard Entertainment, Inc.<br>
+<footer class="main-foot">This site uses data and images from Blizzard's World of Warcraft Community APIs. The site is
+    in no way affiliated with or endorsed by Blizzard Entertainment, Inc.<br>
     World of Warcraft is a registered trademark of Blizzard Entertainment, Inc.</footer>
 {% endblock footer %}
