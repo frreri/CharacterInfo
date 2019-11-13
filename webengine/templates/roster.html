@@ -9,14 +9,16 @@
 <p>Members of Fury on EU-Aggramar, updated hourly</p>
 <div class="roster-grp">
     {% for row in data %}
-    <div class="roster-box">
-        <div>
-            <span class="{{ color_class[row[1]] }}-color roster-name-tag">{{ row[0] }}</span> <span></span> <br>
-            <span class="small-text">{{ row[2]}} {{ row[1]}}</span> <br>
-            lvl.{{ row[4]}} <br>
-            Item level {{ row[5]}}
+    <a href="https://frer.se/lookup/aggramar/{{row[0]}}">
+        <div class="roster-box">
+            <div>
+                <span class="{{ color_class[row[1]] }}-color roster-name-tag">{{ row[0] }}</span> <span></span> <br>
+                <span class="small-text">{{ row[2]}} {{ row[1]}}</span> <br>
+                lvl.{{ row[4]}} <br>
+                Item level {{ row[5]}}
+            </div>
         </div>
-    </div>
+    </a>
     {% endfor %}
 </div>
 {% endblock content %}
