@@ -6,6 +6,7 @@
 }
 .roster-grp a {
     text-decoration: none;
+    color:white;
 }
 .roster-box {
   box-shadow: 0 1px 3px rgba(0,0,0,0.3),1px 0 3px rgba(0,0,0,0.3), 0 -1px 3px rgba(0,0,0,0.3),-1px 0px 3px rgba(0,0,0,0.3);
