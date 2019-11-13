@@ -18,6 +18,9 @@
   flex-shrink:0;
   display: inline-block;
 }
+.roster-box:hover {
+    background-color: rgb(40,40,40);
+}
 .roster-name-tag {
   border: 1px solid white;
   border-radius: 5px;
