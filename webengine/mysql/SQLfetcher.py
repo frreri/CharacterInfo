@@ -20,10 +20,14 @@ def SQLfetch():
     return results
 
 
-def SQLfetchAll():
+def SQLfetchAll(fetch_scope):
+    class_to_fetch = fetch_scope
     cnx = mysql.connector.connect(**sql_config)
     cursor = cnx.cursor()
-    sql = "select * from wowcharacter;"
+    if class_to_fetch == "all":
+        sql = "select * from wowcharacter;"
+    else:
+        sql = "select * from wowcharacter where class = '{}';".format(class_to_fetch)
     cursor.execute(sql)
     results = cursor.fetchall()
     cnx.close()

@@ -7,7 +7,7 @@ apis = Blueprint("apis", __name__)
 
 @apis.route("/server/api/roster", methods=["GET"])
 def get_roster():
-    api_roster = SQLfetcher.SQLfetchAll()
+    api_roster = SQLfetcher.SQLfetchAll("all")
     return jsonify(api_roster)
 
 

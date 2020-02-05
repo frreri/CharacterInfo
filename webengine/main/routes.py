@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, request
 from webengine.mysql import SQLfetcher
 from webengine.apis import wowdata
 
@@ -19,6 +19,20 @@ css_wow_class = {
     "Warlock": "warlock",
     "Warrior": "warrior",
 }
+player_classes = [
+    "deathknight",
+    "demonhunter",
+    "druid",
+    "hunter",
+    "mage",
+    "monk",
+    "paladin",
+    "priest",
+    "rogue",
+    "shaman",
+    "warlock",
+    "warrior",
+]
 thumb = "https://render-eu.worldofwarcraft.com/character/"
 no_thumb = "/static/images/frericon.png"
 
@@ -82,9 +96,14 @@ def output():
     )
 
 
-@main.route("/roster", methods=["GET"])
+@main.route("/roster", methods=["GET", "POST"])
 def roster_list():
-    g_roster = SQLfetcher.SQLfetchAll()
+    fetch_class = "all"
+    if request.method == "POST":
+        if request.form["sort_class"] in player_classes:
+            fetch_class = request.form["sort_class"]
+
+    g_roster = SQLfetcher.SQLfetchAll(fetch_class)
     return render_template(
         "roster.html",
         data=g_roster,
