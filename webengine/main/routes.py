@@ -19,20 +19,21 @@ css_wow_class = {
     "Warlock": "warlock",
     "Warrior": "warrior",
 }
-player_classes = [
-    "deathknight",
-    "demonhunter",
-    "druid",
-    "hunter",
-    "mage",
-    "monk",
-    "paladin",
-    "priest",
-    "rogue",
-    "shaman",
-    "warlock",
-    "warrior",
-]
+player_classes = {
+    "all": "all",
+    "deathknight": "Death Knight",
+    "demonhunter": "Demon Hunter",
+    "druid": "Druid",
+    "hunter": "Hunter",
+    "mage": "Mage",
+    "monk": "Monk",
+    "paladin": "Paladin",
+    "priest": "Priest",
+    "rogue": "Rogue",
+    "shaman": "Shaman",
+    "warlock": "Warlock",
+    "warrior": "Warrior",
+}
 thumb = "https://render-eu.worldofwarcraft.com/character/"
 no_thumb = "/static/images/frericon.png"
 
@@ -101,7 +102,7 @@ def roster_list():
     fetch_class = "all"
     if request.method == "POST":
         if request.form["sort_class"] in player_classes:
-            fetch_class = request.form["sort_class"]
+            fetch_class = player_classes[request.form["sort_class"]]
 
     g_roster = SQLfetcher.SQLfetchAll(fetch_class)
     return render_template(
