@@ -101,7 +101,10 @@ def output():
 def roster_list():
     fetch_class = "all"
     if request.method == "POST":
-        if request.form["sort_class"] in player_classes:
+        if (
+            request.form["sort_class"] in player_classes
+            and request.form["sort_class"].isalnum()
+        ):
             fetch_class = player_classes[request.form["sort_class"]]
 
     g_roster = SQLfetcher.SQLfetchAll(fetch_class)
