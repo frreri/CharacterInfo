@@ -37,11 +37,11 @@
 .roster-butn {
     border-radius: 4px;
     padding: 4px 8px;
-    background-color: rgb(53, 53, 53);
+    background-color: rgb(20, 20, 20);
     border: 1px solid white;
 }
 
 .roster-butn:hover {
-    background-color: rgb(33, 33, 33);
+    background-color: rgb(10, 10, 10);
     cursor: pointer;
 }
