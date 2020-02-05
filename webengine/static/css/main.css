@@ -226,6 +226,10 @@ img {
     }
 }
 
+.all-color {
+    color: white;
+}
+
 .death-knight-color {
     color: #C41F3B;
 }
@@ -281,6 +285,7 @@ img {
 .region-color {
     color: #a335ee;
 }
+
 ul {
     list-style-type: none;
     text-align: left;
@@ -291,26 +296,26 @@ ul {
 }
 
 li {
-display: inline-block;
+    display: inline-block;
 }
 
 li a {
-display: block;
-color: white;
-text-align: center;
-padding: 14px 16px;
-text-decoration: none;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
 }
 
 li a:hover {
-background-color: rgb(20, 20, 20);
+    background-color: rgb(20, 20, 20);
 }
 
 .active {
-    background-color: rgb(20,20,20);
+    background-color: rgb(20, 20, 20);
 }
 
-@media all and (max-width: 600px){
+@media all and (max-width: 600px) {
     ul {
         text-align: center;
     }

@@ -35,10 +35,9 @@
 }
 
 .roster-butn {
-    border-radius: 4px;
     padding: 4px 8px;
     background-color: rgb(20, 20, 20);
-    border: 1px solid white;
+    border: none;
 }
 
 .roster-butn:hover {
