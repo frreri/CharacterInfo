@@ -1,31 +1,47 @@
 .roster-grp {
-  margin-top: 2%;
-  justify-content: start;
-  align-items: flex-start;
-  align-content: flex-start;
+    margin-top: 2%;
+    justify-content: start;
+    align-items: flex-start;
+    align-content: flex-start;
 }
+
 .roster-grp a {
     text-decoration: none;
-    color:white;
+    color: white;
 }
+
 .roster-box {
-  box-shadow: 0 1px 3px rgba(0,0,0,0.3),1px 0 3px rgba(0,0,0,0.3), 0 -1px 3px rgba(0,0,0,0.3),-1px 0px 3px rgba(0,0,0,0.3);
-  background-color: rgb(80, 80, 80);
-  border: 1px solid white;
-  padding: 7px 7px 2px 7px;
-  width: 234px;
-  margin: 5px;
-  line-height: 160%;
-  flex-shrink:0;
-  display: inline-block;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3), 1px 0 3px rgba(0, 0, 0, 0.3), 0 -1px 3px rgba(0, 0, 0, 0.3), -1px 0px 3px rgba(0, 0, 0, 0.3);
+    background-color: rgb(80, 80, 80);
+    border: 1px solid white;
+    padding: 7px 7px 2px 7px;
+    width: 234px;
+    margin: 5px;
+    line-height: 160%;
+    flex-shrink: 0;
+    display: inline-block;
 }
+
 .roster-box:hover {
     background-color: rgb(60, 60, 60);
 }
+
 .roster-name-tag {
-  border: 1px solid white;
-  border-radius: 5px;
-  padding: 0.5% 4% 0.5% 4%;
-  font-size:130%;
-  background-color: rgb(43, 43, 43);
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 0.5% 4% 0.5% 4%;
+    font-size: 130%;
+    background-color: rgb(43, 43, 43);
+}
+
+.roster-butn {
+    border-radius: 4px;
+    padding: 4px 8px;
+    background-color: rgb(53, 53, 53);
+    border: 1px solid white;
+}
+
+.roster-butn:hover {
+    background-color: rgb(33, 33, 33);
+    cursor: pointer;
 }
