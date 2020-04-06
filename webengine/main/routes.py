@@ -37,6 +37,8 @@ player_classes = {
 thumb = "https://render-eu.worldofwarcraft.com/character/"
 no_thumb = "/static/images/frericon.png"
 
+navi = "false"
+
 
 @main.route("/", methods=["GET"])
 @main.route("/token", methods=["GET"])
@@ -51,6 +53,7 @@ def get_token_info():
         data2=token_month_high,
         title="Token",
         selection="token",
+        nav=navi,
     )
 
 
@@ -73,6 +76,7 @@ def char_search(wowrealm, wowcharacter):
                 realm_data=realmlist,
                 color_class=css_wow_class,
                 selection="lookup",
+                nav=navi,
             )
         except:
             return render_template(
@@ -80,6 +84,7 @@ def char_search(wowrealm, wowcharacter):
                 realm_data=realmlist,
                 err_msg="Character not found!",
                 selection="lookup",
+                nav=navi,
             )
     else:
         return render_template(
@@ -87,6 +92,7 @@ def char_search(wowrealm, wowcharacter):
             realm_data=realmlist,
             err_msg="Invalid input!",
             selection="lookup",
+            nav=navi,
         )
 
 
@@ -102,7 +108,7 @@ def output():
             thumbnail.append(thumb + x[3])
         count += 1
     return render_template(
-        "toplist.html", rank_list=g_char, thumb=thumbnail, title="Toplist"
+        "toplist.html", rank_list=g_char, thumb=thumbnail, title="Toplist", nav=navi
     )
 
 
@@ -123,10 +129,13 @@ def roster_list():
         color_class=css_wow_class,
         title="Roster",
         selection="roster",
+        nav=navi,
     )
 
 
 @main.route("/lookup", methods=["GET"])
 def char_lookup():
     realmlist = SQLfetcher.SQLfetchRealm()
-    return render_template("lookup.html", realm_data=realmlist, selection="lookup")
+    return render_template(
+        "lookup.html", realm_data=realmlist, selection="lookup", nav=navi
+    )

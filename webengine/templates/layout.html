@@ -23,9 +23,10 @@
 
     <body class="captain-p">
         {% endif %}
+        {% if nav == "true" %}
         <ul>
             {% if selection == "lookup" %}
-            <li><a class="active" href="https://frer.se">Character</a>
+            <li><a class="active" href="https://frer.se/lookup">Character</a>
                 {% else %}
             <li><a href="https://frer.se">Character</a>
                 {% endif %}
@@ -40,6 +41,7 @@
             <li><a href="https://frer.se/roster">Roster</a>
                 {% endif %}
         </ul>
+        {% endif %}
         <div class="main-container">
             <div class="main-wrapper">
                 {% block content %}
