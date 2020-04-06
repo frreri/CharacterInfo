@@ -39,10 +39,19 @@ no_thumb = "/static/images/frericon.png"
 
 
 @main.route("/", methods=["GET"])
-@main.route("/lookup", methods=["GET"])
-def char_lookup():
-    realmlist = SQLfetcher.SQLfetchRealm()
-    return render_template("lookup.html", realm_data=realmlist, selection="lookup")
+@main.route("/token", methods=["GET"])
+def get_token_info():
+    token_info = SQLfetcher.SQLtokenFetchCurrent()
+    token_history = SQLfetcher.SQLtokenFetchHistory()
+    token_month_high = SQLfetcher.SQLtokenFetchMonthHigh()
+    return render_template(
+        "gold_token.html",
+        data=token_info,
+        data1=token_history,
+        data2=token_month_high,
+        title="Token",
+        selection="token",
+    )
 
 
 @main.route("/lookup/<wowrealm>/<wowcharacter>", methods=["GET"])
@@ -117,16 +126,7 @@ def roster_list():
     )
 
 
-@main.route("/token", methods=["GET"])
-def get_token_info():
-    token_info = SQLfetcher.SQLtokenFetchCurrent()
-    token_history = SQLfetcher.SQLtokenFetchHistory()
-    token_month_high = SQLfetcher.SQLtokenFetchMonthHigh()
-    return render_template(
-        "gold_token.html",
-        data=token_info,
-        data1=token_history,
-        data2=token_month_high,
-        title="Token",
-        selection="token",
-    )
+@main.route("/lookup", methods=["GET"])
+def char_lookup():
+    realmlist = SQLfetcher.SQLfetchRealm()
+    return render_template("lookup.html", realm_data=realmlist, selection="lookup")
