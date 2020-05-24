@@ -75,9 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
             nextRandom = Math.floor(Math.random() * allShapes.length);
             current = allShapes[random][currentRotation];
             currentPosition = 4;
-
             displayNextShape();
-            undraw();
             addScore();
             draw();
             gameOver();
