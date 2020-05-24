@@ -19,9 +19,7 @@
 .grid div {
   height: 20px;
   width: 20px;
-  margin-left: 0px;
   margin-top: 0px;
-  margin-right: 0px;
   margin-bottom: 0px;
 }
 .shape {
@@ -42,6 +40,8 @@
 .next-grid div {
   height: 20px;
   width: 20px;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 .game-over {
   color: red;
