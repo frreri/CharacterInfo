@@ -14,3 +14,8 @@ def operator_search():
             return render_template("operator.html", data="Endast siffror tack!")
 
     return render_template("operator.html")
+
+
+@misc.route("/tetris", methods=["GET"])
+def tetris_game():
+    return render_template("tetris_game.html", title="Tetris Game")
