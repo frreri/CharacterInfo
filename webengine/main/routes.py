@@ -42,6 +42,7 @@ navi = "false"
 
 @main.route("/", methods=["GET"])
 @main.route("/token", methods=["GET"])
+@main.route("/arsas/fisklet/test", methods=["GET"])
 def get_token_info():
     token_info = SQLfetcher.SQLtokenFetchCurrent()
     token_history = SQLfetcher.SQLtokenFetchHistory()
