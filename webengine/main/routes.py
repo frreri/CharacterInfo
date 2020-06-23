@@ -57,7 +57,7 @@ def get_token_info():
     )
 
 
-@main.route("/arsas/fisklet/test", methods=["GET"])
+@main.route("/arsors/testlet/test", methods=["GET"])
 def test_page():
     return render_template("testpage.html", title="Test History")
 
