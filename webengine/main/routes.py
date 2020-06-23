@@ -42,7 +42,6 @@ navi = "false"
 
 @main.route("/", methods=["GET"])
 @main.route("/token", methods=["GET"])
-@main.route("/arsas/fisklet/test", methods=["GET"])
 def get_token_info():
     token_info = SQLfetcher.SQLtokenFetchCurrent()
     token_history = SQLfetcher.SQLtokenFetchHistory()
@@ -56,6 +55,11 @@ def get_token_info():
         selection="token",
         nav=navi,
     )
+
+
+@main.route("/arsas/fisklet/test", methods=["GET"])
+def test_page():
+    return render_template("testpage.html", title="Test History")
 
 
 @main.route("/lookup/<wowrealm>/<wowcharacter>", methods=["GET"])
