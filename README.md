@@ -4,7 +4,7 @@
 This is because blizzard has migrated to a new api endpoint/service and i don't have the time to make the required changes at this time.**
 
 Website built on Python Flask framework. Utilizes Blizzard's community APIs to get info about WoW characters.
-Currently deployed as https://frer.se
+
 
 To be able to run this a config.py file needs to be created in the repository root containing the following:
 ```
@@ -37,7 +37,7 @@ I will change all database communication to SQLAlchemy in the future which will 
 
 User accounts and logged in features are on hold for now.
 
-Current work in progress is the frer.se/token page
+
 
 SQL for table creation for parts of the site using mysql.connector:
 create table goldhistory(date DATE, GoldHigh VARCHAR(12), Region VARCHAR(2), gold_int INT(8), CONSTRAINT regiondate PRIMARY KEY (date,region));
