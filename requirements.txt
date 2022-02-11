@@ -16,7 +16,7 @@ jinja2>=2.11.3
 MarkupSafe==1.1.1
 mysql-connector-python==8.0.13
 pkg-resources==0.0.0
-protobuf==3.6.1
+protobuf==3.15.0
 pycparser==2.19
 python-wowapi==2.2.1
 requests==2.20.1
